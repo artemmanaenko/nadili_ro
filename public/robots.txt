@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ro.nadili.eu/sitemap-index.xml
