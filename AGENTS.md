@@ -91,11 +91,14 @@ Skip a section only when it has nothing in it.
 3. **One `##` section per institution** (`## Медкомісія`, `## DRPCIV (МРЕО)`,
    `## Посольство України`), in the order the reader visits them. Everything about that place
    lives in its section, including payment for it. Inside:
-   - `### Чек-ліст` first: everything to have in hand when you go there, as a Markdown task
+   - `### Чек-ліст` first (after `### Як пройти`, if there is one): everything to have in hand when you go there, as a Markdown task
      list (`- [ ] ...`). One item per document or thing. Item format: `**Name of the thing**`
      then ` - ` and a short clarification (when it is needed, how many copies, the Romanian
      name). No conversational phrasing: "2 копії або скан", not "і пару ксерокопій". Every
      `Чек-ліст` heading gets its own print button automatically.
+   - If going there needs a visit elsewhere first (e.g. a family doctor before the medical
+     check), put a short `### Як пройти` with `<Steps>` before the checklist, and keep the
+     checklist item itself short.
    - Then topic subsections as needed (`### Заява`, `### Оплата`, `### Запис і подача`), with
      `<Steps>` for procedures, `<Tabs>` for alternatives (ways to pay), tables for comparisons,
      images of forms.

@@ -1,0 +1,23 @@
+---
+import DefaultHead from '@astrojs/starlight/components/Head.astro';
+---
+
+<DefaultHead />
+
+<script>
+	function openExternalLinksInNewTab() {
+		for (const link of document.querySelectorAll('a[href]')) {
+			if (!(link instanceof HTMLAnchorElement)) continue;
+			if (!['http:', 'https:'].includes(link.protocol) || link.origin === location.origin) continue;
+			link.target = '_blank';
+			link.relList.add('noopener', 'noreferrer');
+		}
+	}
+
+	document.addEventListener('astro:page-load', openExternalLinksInNewTab);
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', openExternalLinksInNewTab);
+	} else {
+		openExternalLinksInNewTab();
+	}
+</script>

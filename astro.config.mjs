@@ -19,6 +19,7 @@ export default defineConfig({
 			// Guides stand alone: no previous/next links between them.
 			pagination: false,
 			components: {
+				Head: './src/components/Head.astro',
 				ThemeProvider: './src/components/ThemeProvider.astro',
 				ThemeSelect: './src/components/ThemeSelect.astro',
 				PageTitle: './src/components/PageTitle.astro',
