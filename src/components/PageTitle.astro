@@ -2,9 +2,10 @@
 // Page title with a print button. Print styles in theme.css leave only the
 // page content on paper, so the button doubles as "Save as PDF".
 import Default from '@astrojs/starlight/components/PageTitle.astro';
+const home = Astro.url.pathname.replace(/\/$/, '') === import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<div class="title-row">
+{!home && <div class="title-row">
 	<Default />
 	<button type="button" class="print-button print:hidden" data-print>
 		<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
@@ -14,7 +15,7 @@ import Default from '@astrojs/starlight/components/PageTitle.astro';
 		</svg>
 		<span data-print-label>Друк / PDF</span>
 	</button>
-</div>
+</div>}
 
 <script>
 	// When the page has a print memo, the main print button prints the memo.

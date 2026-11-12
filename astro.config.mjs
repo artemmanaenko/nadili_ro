@@ -1,12 +1,13 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import { repositoryName, repositoryUrl } from './repository.mjs';
 
 // GitHub Pages project URL. When a custom domain is attached,
 // set `site` to that domain and remove `base`.
 export default defineConfig({
 	site: 'https://artemmanaenko.github.io',
-	base: '/ua_it_in_ro',
+	base: `/${repositoryName}`,
 	integrations: [
 		starlight({
 			title: 'Українське IT у Румунії',
@@ -20,6 +21,7 @@ export default defineConfig({
 			pagination: false,
 			components: {
 				Head: './src/components/Head.astro',
+				Header: './src/components/HomeHeader.astro',
 				ThemeProvider: './src/components/ThemeProvider.astro',
 				ThemeSelect: './src/components/ThemeSelect.astro',
 				PageTitle: './src/components/PageTitle.astro',
@@ -31,10 +33,10 @@ export default defineConfig({
 			},
 			social: [
 				{ icon: 'telegram', label: 'Telegram', href: 'https://t.me/romaniaitcommunity' },
-				{ icon: 'github', label: 'GitHub', href: 'https://github.com/artemmanaenko/ua_it_in_ro' },
+				{ icon: 'github', label: 'GitHub', href: repositoryUrl },
 			],
 			editLink: {
-				baseUrl: 'https://github.com/artemmanaenko/ua_it_in_ro/edit/main/',
+				baseUrl: `${repositoryUrl}/edit/main/`,
 			},
 			sidebar: [
 				{

@@ -1,33 +1,10 @@
 ---
-title: Українське IT у Румунії
-description: Практичні інструкції для українських IT-фахівців у Румунії.
+title: Довідник життя в Румунії
+description: Інструкції та відповіді від української IT-спільноти.
 template: splash
-hero:
-  tagline: Практичні інструкції для українських IT-фахівців у Румунії.
-  actions:
-    - text: Почати
-      link: guides/getting-started/
-      icon: right-arrow
-    - text: Спільнота в Telegram
-      link: https://t.me/romaniaitcommunity
-      icon: telegram
-      variant: secondary
-    - text: Додати інструкцію
-      link: https://github.com/artemmanaenko/ua_it_in_ro
-      icon: external
-      variant: minimal
+editUrl: false
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import HomeCatalog from '../../components/HomeCatalog.astro';
 
-<CardGrid>
-	<Card title="Покроково" icon="list-format">
-		Кожна інструкція — це послідовність кроків, яку можна пройти від початку до кінця.
-	</Card>
-	<Card title="Зі спільноти" icon="telegram">
-		Сайт виріс із Telegram-спільноти [Romania IT Community](https://t.me/romaniaitcommunity). Питання та обговорення — там.
-	</Card>
-	<Card title="Відкрито" icon="github">
-		Знайшли помилку чи маєте досвід? Відкрийте pull request.
-	</Card>
-</CardGrid>
+<HomeCatalog />

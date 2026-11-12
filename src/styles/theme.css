@@ -515,3 +515,11 @@ h1#_top,
 		height: 0.9rem;
 	}
 }
+
+/* The landing catalogue uses the full splash width; guide layouts stay intact. */
+body:has(.catalog) .main-pane { --sl-content-width: 72rem; }
+body:has(.catalog) .sl-container { max-width: 72rem; }
+body:has(.catalog) .content-panel { padding-block: 0; }
+body:has(.catalog) .sl-markdown-content { line-height: normal; }
+body:has(.catalog) .sl-markdown-content > .catalog { margin-top: 0; }
+body:has(.catalog) .content-panel:has(.catalog) + .content-panel { display: none; }
