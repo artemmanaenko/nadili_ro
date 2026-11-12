@@ -7,7 +7,7 @@ export default defineConfig({
 	site: 'https://ro.nadili.eu',
 	integrations: [
 		starlight({
-			title: 'Nadili',
+			title: 'NADILI',
 			logo: { src: './src/assets/logo.svg', replacesTitle: true },
 			customCss: ['./src/styles/theme.css'],
 			// Right-hand navigation: sections, with subsections shown for the current one.
