@@ -4,10 +4,8 @@ Practical guides for Ukrainian IT professionals in Romania, built with [Astro St
 
 ## Contributing
 
-1. Read `AGENTS.md`: it holds the rules for language, voice and guide format. Agents read it automatically.
-2. Add a `.mdx` file to `src/content/docs/guides/`. Guides are published in Ukrainian.
-3. Run `pnpm dev` and check the page at http://localhost:4321/ua_it_in_ro/.
-4. Open a pull request. Merges to `main` deploy automatically.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for source requirements, page formats and checks.
+Merges to `main` deploy automatically.
 
 ## Commands
 
@@ -16,5 +14,6 @@ Practical guides for Ukrainian IT professionals in Romania, built with [Astro St
 | `pnpm install` | Install dependencies                |
 | `pnpm dev`     | Start the local dev server          |
 | `pnpm build`   | Build the static site to `./dist/`  |
+| `pnpm check:sources` | Check source sections in content files |
 
 Decisions are recorded in `docs/adr/`.

@@ -5,12 +5,17 @@ Read this file before you write anything. The rules grow over time; follow the c
 
 ## What this repository is
 
-A public site of practical guides for Ukrainian IT professionals in Romania. It grew out of
+A public site of practical guides, reference material and contacts for Ukrainian IT professionals in Romania. It grew out of
 the Telegram community https://t.me/romaniaitcommunity.
 
 Several people contribute. They usually bring raw material, not a finished page: notes, a chat
 thread, a link, a draft in any language. Your job is to turn that material into a guide that
 follows these rules, then open a pull request.
+
+For reference pages and contact lists, use the language, voice, facts and source rules below.
+Use a concise format suited to the material; steps, checklists and a print memo are only required
+for procedural guides. Public contact details intended for publication may be included; do not
+publish private personal data from submissions.
 
 ## Workflow
 
@@ -21,6 +26,8 @@ follows these rules, then open a pull request.
 3. Write or edit the guide by the rules below.
 4. Run `pnpm install` (once) and `pnpm build`; the build must pass.
 5. Open a pull request: one line on what changed, plus where the material came from.
+
+For all contributions, follow `CONTRIBUTING.md` and identify the source in the pull request.
 
 Ask the contributor only when the material is too thin to write `Кроки` and at least one
 `Чек-ліст`. Otherwise write what the material supports and leave the rest out.
