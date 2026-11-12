@@ -9,14 +9,11 @@ export default defineConfig({
 	base: '/ua_it_in_ro',
 	integrations: [
 		starlight({
-			title: {
-				uk: 'Українське IT у Румунії',
-				en: 'Ukrainian IT in Romania',
-			},
-			defaultLocale: 'root',
+			title: 'Українське IT у Румунії',
+			// Single locale: guides stay in the language they were written in.
+			// The locale only sets the language of the interface strings.
 			locales: {
 				root: { label: 'Українська', lang: 'uk' },
-				en: { label: 'English', lang: 'en' },
 			},
 			social: [
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/artemmanaenko/ua_it_in_ro' },
@@ -27,7 +24,6 @@ export default defineConfig({
 			sidebar: [
 				{
 					label: 'Інструкції',
-					translations: { en: 'Guides' },
 					items: [{ autogenerate: { directory: 'guides' } }],
 				},
 			],

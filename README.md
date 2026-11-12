@@ -4,7 +4,7 @@ Practical guides for Ukrainian IT professionals in Romania, built with [Astro St
 
 ## Contributing
 
-1. Add a `.md` or `.mdx` file to `src/content/docs/guides/` (Ukrainian) or `src/content/docs/en/guides/` (English).
+1. Add a `.md` or `.mdx` file to `src/content/docs/guides/`. Write it in any language; guides are not translated.
 2. Run `pnpm dev` and check the page at http://localhost:4321/ua_it_in_ro/.
 3. Open a pull request. Merges to `main` deploy automatically.
 
