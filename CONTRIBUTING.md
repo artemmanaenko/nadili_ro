@@ -26,6 +26,12 @@ You retain copyright in your contribution. By submitting a pull request, you gra
 
 The project does not claim ownership of your contribution. See [RIGHTS.md](RIGHTS.md) for the repository's use terms and the rights retained by others.
 
+## Listings for companies and service providers
+
+The project's primary purpose is to share practical information with the community. The site may list companies and independent service providers whose services are relevant to readers.
+
+The repository owner may add listings directly. Other contributors, including maintainers, propose listings through a regular PR. The owner or a maintainer other than the PR author must approve the listing before it is published.
+
 ## Checks
 
 Node.js 24 and pnpm 11 are required. From the repository root:
