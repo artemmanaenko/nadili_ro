@@ -4,14 +4,25 @@ import DefaultFooter from '@astrojs/starlight/components/Footer.astro';
 const { editUrl, lastUpdated } = Astro.locals.starlightRoute;
 ---
 {(editUrl || lastUpdated) && <DefaultFooter />}
-<footer class="site-footer" data-pagefind-ignore>Nadili · 2026</footer>
+<footer class="site-footer" data-pagefind-ignore>
+	<strong>© 2026 Артем Манаєнко</strong>
+	<span>Власник платформи NADILI</span>
+</footer>
 
 <style>
 	.site-footer {
+		display: grid;
+		gap: 0.125rem;
 		border-top: 1px solid var(--sl-color-hairline);
-		padding-block: 0.75rem;
+		padding: 0.75rem 1rem;
 		color: var(--sl-color-gray-3);
 		font-size: var(--sl-text-sm);
 		text-align: center;
+	}
+
+	.site-footer strong {
+		color: var(--sl-color-white);
+		font-size: var(--sl-text-lg);
+		text-transform: uppercase;
 	}
 </style>
