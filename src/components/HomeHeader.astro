@@ -1,0 +1,19 @@
+---
+import DefaultHeader from '@astrojs/starlight/components/Header.astro';
+import SiteTitle from '@astrojs/starlight/components/SiteTitle.astro';
+const home = Astro.locals.starlightRoute.id === '';
+---
+{home ? (
+	<div class="home-header">
+		<SiteTitle />
+	</div>
+) : <DefaultHeader />}
+<style>
+	.home-header {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		max-width: 72rem;
+		margin-inline: auto;
+	}
+</style>

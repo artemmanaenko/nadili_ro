@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 258 53" role="img" aria-labelledby="title desc">
+  <title id="title">NADILI — concept 02 wordmark</title>
+  <desc id="desc">Monochrome uppercase Nadili wordmark with a custom open A.</desc>
+  <g fill="currentColor">
+    <!-- N -->
+    <path d="M0 0H7L38 37V0H46V52H39L8 14V52H0Z"/>
+
+    <!-- Custom A -->
+    <path d="M80 0 57 51H67L84 12 93 23 90 29 101 51H110L89 0Z"/>
+
+    <!-- D -->
+    <path fill-rule="evenodd" d="M121 0H148C160 0 168 10 168 26S160 52 144 52H121ZM129 7V44H145C154 44 160 37 160 26S154 7 145 7Z"/>
+
+    <!-- I -->
+    <path d="M181 0H189V52H181Z"/>
+
+    <!-- L -->
+    <path d="M205 0H213V44H238V52H205Z"/>
+
+    <!-- I -->
+    <path d="M249 0H258V52H249Z"/>
+  </g>
+</svg>

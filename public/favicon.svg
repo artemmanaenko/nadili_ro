@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">NADILI — concept 02 app mark</title>
+  <desc id="desc">Compact monochrome app mark derived from the custom open A.</desc>
+  <style>
+    path { fill: #000000; }
+    @media (prefers-color-scheme: dark) {
+      path { fill: #FFFFFF; }
+    }
+  </style>
+  <g transform="translate(5 12.6) scale(0.88)">
+  <path fill="currentColor" d="M0 79 38 4Q40 0 44 0H50Q56 0 61 3L100 80H76L59 45 63 36 52 25 23 81Q21 85 16 85H12Q6 84 0 81Z"/>
+  </g>
+</svg>
