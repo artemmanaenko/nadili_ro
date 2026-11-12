@@ -1,6 +1,14 @@
 # Contributing
 
-Propose corrections, new guides, reference material and useful contacts through a pull request (PR). You can also propose raw notes or material in another language in an issue. For small corrections, use the “Edit page” link on the site.
+Share corrections, raw notes, sources, or useful contacts in an issue, or give them directly to your agent. Material in any language is welcome.
+
+## Agent-friendly workflow
+
+Agents handle the repository work for content contributions.
+
+1. Give your agent the material and point it to [AGENTS.md](AGENTS.md). The agent writes or updates the page, runs the checks below, and opens a pull request (PR).
+2. Have another agent review the PR against the repository rules and cited sources. The authoring agent addresses its findings.
+3. A human checks that the page is clear in the site preview and that its claims reflect current practice and are backed by the sources.
 
 ## Content
 
@@ -31,4 +39,4 @@ git diff --check
 
 Preview the page with `pnpm dev`. For procedures, also check the printed memo: 1–2 A4 pages, covering every option shown in tabs. Before opening a PR, review the Ukrainian text, sources and private data as described in [AGENTS.md](AGENTS.md).
 
-CI checks the build, whitespace in the diff and the presence of a `## Джерела` section with an HTTP(S) link in changed content under `src/content/docs/guides/`. The instructional page `getting-started.mdx` is excluded. The check does not open links or determine whether a source is current, reliable or supports a claim; the author and reviewer must check that.
+CI checks the build, whitespace in the diff and the presence of a `## Джерела` section with an HTTP(S) link in changed content under `src/content/docs/guides/`. The instructional page `getting-started.mdx` is excluded. When reviewing the content, open the sources and check whether they are current, reliable and support the claims.
