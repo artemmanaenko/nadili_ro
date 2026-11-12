@@ -1,10 +1,12 @@
 ---
 import DefaultFooter from '@astrojs/starlight/components/Footer.astro';
+import GuideCredits from './GuideCredits.astro';
 
 const { editUrl, lastUpdated } = Astro.locals.starlightRoute;
-const base = `${import.meta.env.BASE_URL.replace(/\/+$/, '')}/`;
+const base = `${import.meta.env.BASE_URL.replace(/\/+$/, "")}/`;
 ---
 {(editUrl || lastUpdated) && <DefaultFooter />}
+<GuideCredits placement="footer" />
 <footer class="site-footer" data-pagefind-ignore>
 	<p>Довідкова інформація, не індивідуальна юридична чи податкова консультація.</p>
 	<p><a href={`${base}legal/`}>Правова інформація</a> · <a href={`${base}privacy/`}>Приватність</a> · <a href="mailto:contacts@nadili.eu">Зв’язатися</a></p>
@@ -18,5 +20,11 @@ const base = `${import.meta.env.BASE_URL.replace(/\/+$/, '')}/`;
 		color: var(--sl-color-gray-3);
 		font-size: var(--sl-text-sm);
 		text-align: center;
+	}
+
+	@media (min-width: 72rem) {
+		.site-footer {
+			width: calc(100% + 20rem);
+		}
 	}
 </style>

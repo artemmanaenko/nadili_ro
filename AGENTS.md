@@ -124,6 +124,9 @@ Other rules:
   `register-pfa.mdx`. Images go to `src/assets/<guide-name>/`.
 - Frontmatter has `title` (what the guide helps do) and `description` (one sentence for search
   results).
+- Use the optional `contributors` list in frontmatter to show «Подяки» alongside the table of
+  contents on wide screens or below the guide on narrow screens.
+  Use names or aliases intended for publication, or `Анонімні учасники` for anonymous contributors.
 - Use a plain bullet list only when the material really is a list.
 
 ## Page design

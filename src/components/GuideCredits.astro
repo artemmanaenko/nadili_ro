@@ -1,0 +1,60 @@
+---
+import { Icon } from '@astrojs/starlight/components';
+
+interface Props {
+	placement: 'sidebar' | 'footer';
+}
+
+const { placement } = Astro.props;
+const { entry, toc } = Astro.locals.starlightRoute;
+const contributors = entry.id.startsWith('guides/') ? entry.data.contributors : undefined;
+---
+
+{contributors?.length ? (
+	<div class:list={['guide-credits', 'sl-flex', { 'lg:sl-hidden': placement === 'footer' && toc }]}>
+		<span class="icon" aria-hidden="true"><Icon name="heart" size="1rem" /></span>
+		<div>
+			<p class="label">Подяки</p>
+			<p>{contributors.join(', ')}</p>
+		</div>
+	</div>
+) : null}
+
+<style>
+	.guide-credits {
+		align-items: flex-start;
+		gap: 0.625rem;
+		margin-block-start: 0.75rem;
+		padding: 0.75rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 12px;
+		background: var(--sl-color-gray-7);
+		font-size: var(--sl-text-sm);
+		line-height: 1.45;
+		overflow-wrap: anywhere;
+	}
+
+	.icon {
+		display: grid;
+		flex: none;
+		place-items: center;
+		inline-size: 2rem;
+		block-size: 2rem;
+		border-radius: 8px;
+		background: var(--sl-color-accent-low);
+		color: var(--sl-color-accent-high);
+	}
+
+	.label {
+		margin-block-end: 0.125rem;
+		color: var(--sl-color-gray-3);
+		font-size: var(--sl-text-xs);
+		font-weight: 600;
+	}
+
+	@media print {
+		.guide-credits {
+			display: none;
+		}
+	}
+</style>
