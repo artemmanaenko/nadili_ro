@@ -10,6 +10,11 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'Українське IT у Румунії',
+			customCss: ['./src/styles/theme.css'],
+			components: {
+				ThemeProvider: './src/components/ThemeProvider.astro',
+				ThemeSelect: './src/components/ThemeSelect.astro',
+			},
 			// Single locale: guides stay in the language they were written in.
 			// The locale only sets the language of the interface strings.
 			locales: {
