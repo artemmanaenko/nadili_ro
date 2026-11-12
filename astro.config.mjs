@@ -1,13 +1,10 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import { repositoryName, repositoryUrl } from './repository.mjs';
+import { repositoryUrl } from './repository.mjs';
 
-// GitHub Pages project URL. When a custom domain is attached,
-// set `site` to that domain and remove `base`.
 export default defineConfig({
-	site: 'https://artemmanaenko.github.io',
-	base: `/${repositoryName}`,
+	site: 'https://ro.nadili.eu',
 	integrations: [
 		starlight({
 			title: 'Nadili',
