@@ -1,9 +1,11 @@
 ---
 import DefaultFooter from '@astrojs/starlight/components/Footer.astro';
+import GuideCredits from './GuideCredits.astro';
 
 const { editUrl, lastUpdated } = Astro.locals.starlightRoute;
 ---
 {(editUrl || lastUpdated) && <DefaultFooter />}
+<GuideCredits placement="footer" />
 <footer class="site-footer" data-pagefind-ignore>© Nadili 2026 · Артем Манаєнко</footer>
 
 <style>

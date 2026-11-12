@@ -22,6 +22,7 @@ export default defineConfig({
 				ThemeProvider: './src/components/ThemeProvider.astro',
 				ThemeSelect: './src/components/ThemeSelect.astro',
 				PageTitle: './src/components/PageTitle.astro',
+				TableOfContents: './src/components/GuideTableOfContents.astro',
 			},
 			// Single locale: guides stay in the language they were written in.
 			// The locale only sets the language of the interface strings.

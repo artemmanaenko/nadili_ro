@@ -8,6 +8,7 @@ export const collections = {
 		loader: docsLoader(),
 		schema: docsSchema({
 			extend: ({ image }) => z.object({
+				contributors: z.array(z.string().trim().min(1)).optional(),
 				socialImage: z.object({ src: image(), alt: z.string() }).optional(),
 			}),
 		}),
