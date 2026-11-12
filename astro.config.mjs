@@ -2,23 +2,33 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
-// https://astro.build/config
+// GitHub Pages project URL. When a custom domain is attached,
+// set `site` to that domain and remove `base`.
 export default defineConfig({
+	site: 'https://artemmanaenko.github.io',
+	base: '/ua_it_in_ro',
 	integrations: [
 		starlight({
-			title: 'My Docs',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			title: {
+				uk: 'Українське IT у Румунії',
+				en: 'Ukrainian IT in Romania',
+			},
+			defaultLocale: 'root',
+			locales: {
+				root: { label: 'Українська', lang: 'uk' },
+				en: { label: 'English', lang: 'en' },
+			},
+			social: [
+				{ icon: 'github', label: 'GitHub', href: 'https://github.com/artemmanaenko/ua_it_in_ro' },
+			],
+			editLink: {
+				baseUrl: 'https://github.com/artemmanaenko/ua_it_in_ro/edit/main/',
+			},
 			sidebar: [
 				{
-					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
-					],
-				},
-				{
-					label: 'Reference',
-					items: [{ autogenerate: { directory: 'reference' } }],
+					label: 'Інструкції',
+					translations: { en: 'Guides' },
+					items: [{ autogenerate: { directory: 'guides' } }],
 				},
 			],
 		}),
