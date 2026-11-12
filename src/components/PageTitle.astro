@@ -1,0 +1,115 @@
+---
+// Page title with a print button. Print styles in theme.css leave only the
+// page content on paper, so the button doubles as "Save as PDF".
+import Default from '@astrojs/starlight/components/PageTitle.astro';
+---
+
+<div class="title-row">
+	<Default />
+	<button type="button" class="print-button print:hidden" data-print>
+		<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M6 9V3h12v6" />
+			<path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+			<path d="M6 14h12v7H6z" />
+		</svg>
+		<span data-print-label>Друк / PDF</span>
+	</button>
+</div>
+
+<script>
+	// When the page has a print memo, the main print button prints the memo.
+	const hasMemo = Boolean(document.querySelector('.print-memo'));
+	document.querySelectorAll<HTMLButtonElement>('[data-print]').forEach((button) => {
+		if (hasMemo) {
+			const label = button.querySelector('[data-print-label]');
+			if (label) label.textContent = 'Друк пам\'ятки';
+		}
+		button.addEventListener('click', () => window.print());
+	});
+
+	// "Print checklist" buttons: every heading that starts with "Чек-ліст"
+	// and is followed by a task list gets one. Printing keeps the page title,
+	// the section the checklist belongs to and the checklist itself.
+	const content = document.querySelector('.sl-markdown-content');
+	const icon =
+		'<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v7H6z"/></svg>';
+	content?.querySelectorAll<HTMLElement>(':scope > .sl-heading-wrapper').forEach((wrapper) => {
+		const heading = wrapper.querySelector('h2, h3');
+		const list = wrapper.nextElementSibling;
+		if (!heading?.textContent?.trim().startsWith('Чек-ліст') || !list?.matches('ul.contains-task-list')) return;
+
+		// The h2 this checklist sits under, when the checklist is an h3.
+		let section: Element | null = null;
+		if (heading.tagName === 'H3') {
+			for (let el = wrapper.previousElementSibling; el; el = el.previousElementSibling) {
+				if (el.matches('.sl-heading-wrapper.level-h2')) {
+					section = el;
+					break;
+				}
+			}
+		}
+
+		const button = document.createElement('button');
+		button.type = 'button';
+		button.className = 'checklist-print';
+		button.innerHTML = `${icon}Друк чек-ліста`;
+		wrapper.append(button);
+		button.addEventListener('click', () => {
+			content.querySelectorAll('[data-print-keep]').forEach((el) => el.removeAttribute('data-print-keep'));
+			for (const el of [section, wrapper, list]) el?.setAttribute('data-print-keep', '');
+			document.documentElement.classList.add('print-checklist-only');
+			window.print();
+		});
+	});
+	window.addEventListener('afterprint', () => {
+		document.documentElement.classList.remove('print-checklist-only');
+	});
+
+	// Make Markdown checklists tickable. Ticks are a per-reader convenience,
+	// kept in this browser only; the page works the same without storage.
+	const key = `checklist:${location.pathname}`;
+	let saved: boolean[] = [];
+	try {
+		saved = JSON.parse(localStorage.getItem(key) ?? '[]');
+	} catch {}
+	const boxes = [
+		...document.querySelectorAll<HTMLInputElement>('.sl-markdown-content .task-list-item input[type="checkbox"]'),
+	];
+	boxes.forEach((box, i) => {
+		box.disabled = false;
+		box.checked = Boolean(saved[i]);
+		box.addEventListener('change', () => {
+			try {
+				localStorage.setItem(key, JSON.stringify(boxes.map((b) => b.checked)));
+			} catch {}
+		});
+	});
+</script>
+
+<style>
+	.title-row {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-end;
+		justify-content: space-between;
+		gap: 0.75rem 1rem;
+	}
+	.print-button {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		margin-bottom: 0.4rem;
+		padding: 0.4rem 0.8rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 6px;
+		background: var(--sl-color-gray-7, var(--sl-color-black));
+		color: var(--sl-color-gray-2);
+		font: inherit;
+		font-size: var(--sl-text-sm);
+		cursor: pointer;
+	}
+	.print-button:hover {
+		border-color: var(--sl-color-accent);
+		color: var(--sl-color-accent);
+	}
+</style>

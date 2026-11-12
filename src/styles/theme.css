@@ -19,6 +19,14 @@
 	--font-editorial: "Cormorant Garamond", Georgia, serif;
 	--sl-font: "Inter", "Segoe UI", Arial, sans-serif;
 
+	/* Wider column and larger body text for large screens; Starlight's
+	   default is 45rem / 16px. Line length stays readable at ~85ch. */
+	--sl-content-width: 60rem;
+	--sl-text-body: 1.0625rem;
+	/* Smaller section headings: the page is a tool, not an article. */
+	--sl-text-h2: var(--sl-text-2xl);
+	--sl-text-h3: var(--sl-text-xl);
+
 	--sl-color-white: #211A29;
 	--sl-color-gray-1: #2E2636;
 	--sl-color-gray-2: #3D3545;
@@ -68,4 +76,432 @@ h1#_top,
 }
 .sl-markdown-content strong {
 	font-weight: 650;
+}
+
+/* Print: only the page title and content reach paper. */
+@media print {
+	header.header,
+	#starlight__sidebar,
+	.sidebar-pane,
+	.right-sidebar-container,
+	mobile-starlight-toc,
+	starlight-toc,
+	.sl-container > footer,
+	footer.sl-flex,
+	.pagination-links,
+	.print-button {
+		display: none !important;
+	}
+}
+
+/* Checklists: Markdown task lists ("- [ ] ...") render as tickable cards. */
+.sl-markdown-content ul.contains-task-list {
+	list-style: none;
+	padding-inline-start: 0;
+	border: 1px solid var(--sl-color-gray-5);
+	border-radius: 10px;
+	background: var(--sl-color-gray-7);
+}
+.sl-markdown-content .contains-task-list > li.task-list-item {
+	position: relative;
+	margin: 0;
+	padding: 0.7rem 1rem 0.7rem 2.9rem;
+	border-top: 1px solid var(--sl-color-gray-6);
+}
+.sl-markdown-content .contains-task-list > li.task-list-item:first-child {
+	border-top: 0;
+}
+.sl-markdown-content .task-list-item input[type='checkbox'] {
+	position: absolute;
+	left: 1rem;
+	top: 0.95rem;
+	width: 1.15rem;
+	height: 1.15rem;
+	margin: 0;
+	accent-color: var(--sl-color-accent);
+	cursor: pointer;
+}
+.sl-markdown-content .task-list-item:has(input:checked) {
+	color: var(--sl-color-gray-3);
+}
+.sl-markdown-content .task-list-item:has(input:checked) strong {
+	text-decoration: line-through;
+}
+
+/* Right-hand navigation: a numbered card with the current section
+   highlighted. Subsections (h3) show only under the section being read.
+   The "Overview" entry duplicates the page title, so it is hidden. */
+.right-sidebar-panel starlight-toc nav {
+	padding: 1rem 0.75rem 0.75rem;
+	border: 1px solid var(--sl-color-gray-5);
+	border-radius: 12px;
+	background: var(--sl-color-gray-7);
+}
+.right-sidebar-panel starlight-toc h2 {
+	margin: 0 0 0.5rem 0.5rem;
+	color: var(--sl-color-gray-3);
+	font-size: var(--sl-text-xs);
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+}
+.right-sidebar-panel starlight-toc ul {
+	padding: 0;
+	list-style: none;
+}
+.right-sidebar-panel starlight-toc nav > ul {
+	counter-reset: toc;
+}
+.right-sidebar-panel starlight-toc nav > ul > li:first-child {
+	display: none;
+}
+.right-sidebar-panel starlight-toc nav > ul > li {
+	counter-increment: toc;
+}
+.right-sidebar-panel starlight-toc a {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	margin: 1px 0;
+	padding: 0.45rem 0.5rem;
+	border-radius: 8px;
+	color: var(--sl-color-gray-2);
+	font-size: var(--sl-text-sm);
+	line-height: 1.3;
+	text-decoration: none;
+	transition: background-color 0.15s, color 0.15s;
+}
+.right-sidebar-panel starlight-toc nav > ul > li > a::before {
+	content: counter(toc);
+	display: grid;
+	flex: none;
+	place-items: center;
+	width: 1.5rem;
+	height: 1.5rem;
+	border: 1px solid var(--sl-color-gray-5);
+	border-radius: 50%;
+	background: var(--sl-color-black);
+	color: var(--sl-color-gray-3);
+	font-size: var(--sl-text-2xs);
+	font-variant-numeric: tabular-nums;
+	font-weight: 600;
+}
+.right-sidebar-panel starlight-toc a:hover {
+	background: var(--sl-color-gray-6);
+	color: var(--sl-color-white);
+}
+
+/* Current top-level section: filled number, tinted row. Starlight marks
+   the deepest heading in view, so the parent is matched with :has(). */
+.right-sidebar-panel starlight-toc nav > ul > li:has(a[aria-current='true']) > a {
+	background: var(--sl-color-accent-low);
+	color: var(--sl-color-white);
+	font-weight: 600;
+}
+.right-sidebar-panel starlight-toc nav > ul > li:has(a[aria-current='true']) > a::before {
+	border-color: var(--sl-color-accent);
+	background: var(--sl-color-accent);
+	color: var(--sl-color-black);
+}
+
+/* Subsections: collapsed until their section is current. */
+.right-sidebar-panel starlight-toc li > ul {
+	max-height: 0;
+	overflow: hidden;
+	margin-inline-start: 1.25rem;
+	padding-inline-start: 0.75rem;
+	border-inline-start: 1px solid var(--sl-color-gray-5);
+	opacity: 0;
+	transition: max-height 0.25s ease, opacity 0.2s ease, margin 0.2s ease;
+}
+.right-sidebar-panel starlight-toc li:has(a[aria-current='true']) > ul {
+	max-height: 20rem;
+	margin-block: 0.15rem 0.35rem;
+	opacity: 1;
+}
+.right-sidebar-panel starlight-toc li > ul a {
+	padding: 0.3rem 0.5rem;
+	color: var(--sl-color-gray-3);
+	font-size: var(--sl-text-xs);
+}
+.right-sidebar-panel starlight-toc li > ul a[aria-current='true'] {
+	color: var(--sl-color-accent);
+	font-weight: 600;
+}
+
+/* Wide screens: keep the text column and the navigation together in the
+   middle instead of pinning the navigation to the far right edge. */
+@media (min-width: 72rem) {
+	.main-frame > .lg\:sl-flex {
+		max-width: calc(var(--sl-content-width) + 22rem + 2 * var(--sl-content-pad-x, 3rem));
+		margin-inline: auto;
+	}
+	.right-sidebar-container {
+		width: 20rem;
+		order: 2;
+	}
+	.right-sidebar {
+		position: sticky;
+		top: var(--sl-nav-height);
+		width: auto;
+		height: auto;
+		max-height: calc(100vh - var(--sl-nav-height));
+		border-inline-start: 0;
+	}
+	.right-sidebar-panel {
+		padding-top: 0.75rem;
+	}
+	.main-pane {
+		flex: 1;
+	}
+}
+
+/* "Print checklist" button next to the "Чек-ліст" heading. */
+.sl-heading-wrapper:has(.checklist-print) {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.5rem 1rem;
+}
+.checklist-print {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	margin-inline-start: auto;
+	padding: 0.35rem 0.75rem;
+	border: 1px solid var(--sl-color-gray-5);
+	border-radius: 6px;
+	background: var(--sl-color-gray-7);
+	color: var(--sl-color-gray-2);
+	font: inherit;
+	font-size: var(--sl-text-sm);
+	cursor: pointer;
+}
+.checklist-print:hover {
+	border-color: var(--sl-color-accent);
+	color: var(--sl-color-accent);
+}
+@media print {
+	.checklist-print {
+		display: none !important;
+	}
+	/* Checklist-only print: keep the page title and the checklist. */
+	.print-checklist-only .sl-markdown-content > :not([data-print-keep]) {
+		display: none !important;
+	}
+	.print-checklist-only .sl-markdown-content .task-list-item input[type='checkbox'] {
+		accent-color: #000;
+	}
+}
+
+/* Link card to a full example image (opens in a new tab). */
+.sl-markdown-content a.example-link {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+	max-width: 30rem;
+	padding: 0.75rem;
+	border: 1px solid var(--sl-color-gray-5);
+	border-radius: 10px;
+	background: var(--sl-color-gray-7);
+	color: var(--sl-color-gray-3);
+	font-size: var(--sl-text-sm);
+	line-height: 1.4;
+	text-decoration: none;
+}
+.sl-markdown-content a.example-link:hover {
+	border-color: var(--sl-color-accent);
+}
+.sl-markdown-content a.example-link img {
+	flex: none;
+	width: 72px;
+	height: auto;
+	border: 1px solid var(--sl-color-gray-6);
+	border-radius: 4px;
+}
+.sl-markdown-content a.example-link strong {
+	color: var(--sl-color-accent);
+}
+@media print {
+	.sl-markdown-content a.example-link {
+		display: none;
+	}
+}
+
+/* Tighter vertical rhythm: title panel, first content block, section gaps. */
+.content-panel:first-child {
+	padding-block: 0.75rem;
+}
+.content-panel:first-child h1 {
+	margin-top: 0;
+}
+.content-panel + .content-panel {
+	padding-top: 1rem;
+}
+.sl-markdown-content > .sl-heading-wrapper.level-h2 {
+	margin-top: 2rem;
+}
+.sl-markdown-content > .sl-heading-wrapper.level-h3 {
+	margin-top: 1.5rem;
+}
+
+/* Print: smaller type and margins, no sources section. A guide is printed to
+   take along, and links cannot be followed from paper. */
+@media print {
+	@page {
+		margin: 12mm;
+	}
+	html {
+		font-size: 75%;
+	}
+	.sl-markdown-content > .sl-heading-wrapper:has(#джерела),
+	.sl-markdown-content > .sl-heading-wrapper:has(#джерела) ~ * {
+		display: none !important;
+	}
+	.sl-markdown-content > .sl-heading-wrapper.level-h2 {
+		margin-top: 1.25rem;
+	}
+	.sl-markdown-content > .sl-heading-wrapper.level-h3 {
+		margin-top: 1rem;
+	}
+	.sl-markdown-content img {
+		max-width: 75%;
+	}
+	.sl-markdown-content .contains-task-list > li.task-list-item {
+		padding-block: 0.35rem;
+	}
+	.summary {
+		margin-bottom: 0.75rem;
+	}
+	.sl-markdown-content ul.contains-task-list,
+	.sl-markdown-content table {
+		break-inside: avoid;
+	}
+}
+
+/* Major sections (every h2 between "Кроки" and "Джерела") read as numbered
+   blocks: a divider, then a small "Крок N" label matching the overview steps. */
+.sl-markdown-content {
+	counter-reset: section;
+}
+.sl-markdown-content > .sl-heading-wrapper.level-h2 ~ .sl-heading-wrapper.level-h2 {
+	margin-top: 1.75rem;
+	padding-top: 1.25rem;
+	border-top: 1px solid var(--sl-color-gray-5);
+}
+.sl-markdown-content > .sl-heading-wrapper.level-h2 ~ .sl-heading-wrapper.level-h2:not(:has(#джерела)) {
+	counter-increment: section;
+}
+.sl-markdown-content > .sl-heading-wrapper.level-h2 ~ .sl-heading-wrapper.level-h2:not(:has(#джерела))::before {
+	content: 'Крок ' counter(section);
+	display: block;
+	width: 100%;
+	margin-bottom: 0.35rem;
+	color: var(--sl-color-accent);
+	font-size: var(--sl-text-xs);
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+.sl-markdown-content > .sl-heading-wrapper.level-h2 ~ .sl-heading-wrapper.level-h2:not(:has(#джерела)) h2 {
+	margin-top: 0;
+}
+@media print {
+	.sl-markdown-content > .sl-heading-wrapper.level-h2 ~ .sl-heading-wrapper.level-h2 {
+		margin-top: 1.25rem;
+		padding-top: 1rem;
+	}
+}
+
+/* Tables as cards: framed, tinted header, no double rules. */
+.sl-markdown-content table:not(:where(.not-content *)) {
+	display: table;
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+	overflow: hidden;
+	border: 1px solid var(--sl-color-gray-5);
+	border-radius: 10px;
+	background: var(--sl-color-gray-7);
+	font-size: var(--sl-text-sm);
+}
+.sl-markdown-content :is(th, td):not(:where(.not-content *)) {
+	padding: 0.6rem 0.9rem;
+	border-bottom: 1px solid var(--sl-color-gray-6);
+	vertical-align: top;
+}
+.sl-markdown-content th:not(:where(.not-content *)) {
+	background: var(--sl-color-gray-6);
+	color: var(--sl-color-gray-2);
+	font-size: var(--sl-text-xs);
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+.sl-markdown-content tr:last-child > td:not(:where(.not-content *)) {
+	border-bottom: 0;
+}
+.sl-markdown-content td:first-child:not(:where(.not-content *)) {
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+/* No trailing space or rail after the last step. */
+.sl-markdown-content .sl-steps > li:last-child {
+	padding-bottom: 0;
+}
+.sl-markdown-content .sl-steps > li:last-child::after {
+	display: none;
+}
+.sl-markdown-content a.example-link {
+	margin-block: 0.75rem 1rem;
+}
+
+/* Print memo: when a guide has one, a normal print shows only the memo
+   (the checklist-only print keeps its own rules). */
+@media print {
+	html:not(.print-checklist-only) .sl-markdown-content:has(.print-memo) > :not(.print-memo) {
+		display: none !important;
+	}
+	html.print-checklist-only .print-memo {
+		display: none !important;
+	}
+	.print-memo {
+		font-size: 0.92rem;
+		line-height: 1.4;
+	}
+	.print-memo > * + * {
+		margin-top: 0.5rem;
+	}
+	.print-memo__label {
+		color: var(--sl-color-accent);
+		font-size: var(--sl-text-xs);
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+	.print-memo .memo-step {
+		margin-top: 0.75rem;
+		padding: 0.6rem 0.8rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 8px;
+		break-inside: avoid;
+	}
+	.print-memo .memo-step > * + * {
+		margin-top: 0.35rem;
+	}
+	.print-memo ul.contains-task-list {
+		border: 0;
+		background: none;
+	}
+	.print-memo .contains-task-list > li.task-list-item {
+		padding: 0.15rem 0 0.15rem 1.6rem;
+		border-top: 0;
+	}
+	.print-memo .task-list-item input[type='checkbox'] {
+		left: 0;
+		top: 0.3rem;
+		width: 0.9rem;
+		height: 0.9rem;
+	}
 }

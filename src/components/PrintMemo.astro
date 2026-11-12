@@ -1,0 +1,21 @@
+---
+// Print-only memo: a 1-2 page summary of a guide (checklists and key steps
+// per institution). Hidden on screen; when a page has one, "Друк / PDF"
+// prints the memo instead of the whole page.
+---
+
+<div class="print-memo">
+	<p class="print-memo__label">Пам'ятка</p>
+	<slot />
+</div>
+
+<style>
+	.print-memo {
+		display: none;
+	}
+	@media print {
+		.print-memo {
+			display: block;
+		}
+	}
+</style>

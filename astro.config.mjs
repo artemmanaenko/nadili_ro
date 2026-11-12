@@ -10,10 +10,18 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'Українське IT у Румунії',
+			// Community mark shown in the header next to the site title.
+			logo: { src: './src/assets/logo.svg' },
 			customCss: ['./src/styles/theme.css'],
+			// Right-hand navigation: sections, with subsections shown for the current one.
+			tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 3 },
+			routeMiddleware: './src/routeData.ts',
+			// Guides stand alone: no previous/next links between them.
+			pagination: false,
 			components: {
 				ThemeProvider: './src/components/ThemeProvider.astro',
 				ThemeSelect: './src/components/ThemeSelect.astro',
+				PageTitle: './src/components/PageTitle.astro',
 			},
 			// Single locale: guides stay in the language they were written in.
 			// The locale only sets the language of the interface strings.
