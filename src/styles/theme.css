@@ -95,6 +95,7 @@ h1#_top,
 	mobile-starlight-toc,
 	starlight-toc,
 	.sl-container > footer,
+	.site-footer,
 	footer.sl-flex,
 	.pagination-links,
 	.print-button {
@@ -531,38 +532,8 @@ body:has(.catalog) .content-panel { padding-block: 0; }
 body:has(.catalog) .sl-markdown-content { line-height: normal; }
 body:has(.catalog) .sl-markdown-content > .catalog { margin-top: 0; }
 
-/* Keep the footer at the bottom on short pages, without covering content. */
 @media screen {
-.main-frame > .lg\:sl-flex,
-.main-pane,
-.main-pane main {
-	min-height: calc(100vh - var(--sl-nav-height) - var(--sl-mobile-toc-height, 0px));
-}
-.main-pane main,
-.main-pane main > .content-panel:last-child,
-.main-pane main > .content-panel:last-child > .sl-container {
-	display: flex;
-	flex-direction: column;
-}
-.main-pane main > .content-panel:last-child,
-.main-pane main > .content-panel:last-child > .sl-container { flex: 1; }
-.main-pane .site-footer { margin-top: auto; }
-
-/* Align the edit link with the collection date at the end of a guide. */
-@media (min-width: 40rem) {
-	.sl-container:has(.sl-markdown-content #джерела) > .sl-markdown-content > p:last-child {
-		padding-inline-end: 50%;
+	.main-pane main > .content-panel:last-child {
+		padding-bottom: 0.75rem;
 	}
-	.sl-container:has(.sl-markdown-content #джерела) > footer.sl-flex {
-		margin-top: -1.5rem;
-	}
-	.sl-container:has(.sl-markdown-content #джерела) > footer.sl-flex .meta {
-		justify-content: flex-end;
-		margin-top: 0;
-	}
-}
-
-.main-pane main > .content-panel:last-child {
-	padding-bottom: 0.5rem;
-}
 }

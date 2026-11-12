@@ -9,6 +9,7 @@ export const collections = {
 		schema: docsSchema({
 			extend: ({ image }) => z.object({
 				contributors: z.array(z.string().trim().min(1)).optional(),
+				collectedOn: z.iso.date().optional(),
 				socialImage: z.object({ src: image(), alt: z.string() }).optional(),
 			}),
 		}),
