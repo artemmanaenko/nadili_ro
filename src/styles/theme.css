@@ -453,6 +453,16 @@ h1#_top,
 .sl-markdown-content .sl-steps > li:last-child::after {
 	display: none;
 }
+
+@media screen and (max-width: 40rem) {
+	.sl-markdown-content .sl-steps > li {
+		padding-inline-start: calc(var(--bullet-size) + 0.5rem);
+	}
+	.sl-markdown-content .sl-steps > li > ul:not(.contains-task-list) {
+		padding-inline-start: 1.125rem;
+	}
+}
+
 .sl-markdown-content a.example-link {
 	margin-block: 0.75rem 1rem;
 }
