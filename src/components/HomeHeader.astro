@@ -1,6 +1,7 @@
 ---
 import Search from '@astrojs/starlight/components/Search.astro';
 import SiteTitle from '@astrojs/starlight/components/SiteTitle.astro';
+import romaniaFlag from '../assets/romania-flag.svg';
 import { repositoryUrl } from '../../repository.mjs';
 
 const { id } = Astro.locals.starlightRoute;
@@ -12,7 +13,10 @@ const links = [
 ];
 ---
 <div class:list={['site-header', { home: id === '' }]}>
-	<SiteTitle />
+	<div class="brand">
+		<SiteTitle />
+		{id === '' && <img class="country-flag" src={romaniaFlag.src} width="24" height="16" alt="Румунія" />}
+	</div>
 	{id !== '' && <div class="search"><Search /></div>}
 	<nav class="desktop-links" aria-label="Посилання сайту">
 		{links.map(({ href, label }) => <a href={href}>{label}</a>)}
@@ -27,6 +31,8 @@ const links = [
 
 <style>
 	.site-header { display: flex; align-items: center; gap: 1rem; width: 100%; height: 100%; }
+	.brand { display: flex; align-items: center; gap: .75rem; flex-shrink: 0; }
+	.country-flag { display: block; width: 24px; height: 16px; }
 	.home { max-width: 72rem; margin-inline: auto; }
 	.search { flex: 1; min-width: 0; }
 	.desktop-links { display: flex; align-items: center; gap: 1rem; margin-inline-start: auto; }
