@@ -14,10 +14,64 @@ import DefaultHead from '@astrojs/starlight/components/Head.astro';
 		}
 	}
 
+	const headingLinkSelector = '.sl-heading-wrapper > a.sl-anchor-link';
+	const copyLabel = 'Скопіювати посилання';
+	const copyStatus = document.createElement('div');
+	copyStatus.className = 'heading-link-status';
+	copyStatus.setAttribute('role', 'status');
+	let statusTimer: number;
+
+	function labelHeadingLinks() {
+		document.querySelectorAll<HTMLAnchorElement>(headingLinkSelector).forEach((link) => {
+			const heading = link.previousElementSibling?.textContent?.trim();
+			link.title = copyLabel;
+			link.setAttribute('aria-label', heading ? `${copyLabel}: ${heading}` : copyLabel);
+		});
+		document.body.append(copyStatus);
+	}
+
+	document.addEventListener('click', async (event) => {
+		if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+		if (!(event.target instanceof Element)) return;
+		const link = event.target.closest<HTMLAnchorElement>(headingLinkSelector);
+		if (!link) return;
+
+		event.preventDefault();
+		try {
+			await navigator.clipboard.writeText(link.href);
+			copyStatus.textContent = 'Посилання скопійовано';
+			window.clearTimeout(statusTimer);
+			statusTimer = window.setTimeout(() => { copyStatus.textContent = ''; }, 2500);
+		} catch {
+			window.prompt('Скопіюйте посилання', link.href);
+		}
+	});
+
 	document.addEventListener('astro:page-load', openExternalLinksInNewTab);
+	document.addEventListener('astro:page-load', labelHeadingLinks);
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', openExternalLinksInNewTab);
+		document.addEventListener('DOMContentLoaded', labelHeadingLinks);
 	} else {
 		openExternalLinksInNewTab();
+		labelHeadingLinks();
 	}
 </script>
+
+<style is:global>
+	.heading-link-status:not(:empty) {
+		position: fixed;
+		z-index: var(--sl-z-index-navbar);
+		inset-block-end: 1rem;
+		inset-inline-end: 1rem;
+		padding: 0.4rem 0.75rem;
+		border-radius: 6px;
+		background: var(--sl-color-white);
+		color: var(--sl-color-black);
+		font-size: var(--sl-text-sm);
+		pointer-events: none;
+	}
+	@media print {
+		.heading-link-status { display: none; }
+	}
+</style>
