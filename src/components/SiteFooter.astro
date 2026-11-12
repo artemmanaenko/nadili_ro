@@ -14,4 +14,10 @@ const { editUrl, lastUpdated } = Astro.locals.starlightRoute;
 		font-size: var(--sl-text-sm);
 		text-align: center;
 	}
+
+	@media (min-width: 72rem) {
+		.site-footer {
+			width: calc(100% + 20rem);
+		}
+	}
 </style>

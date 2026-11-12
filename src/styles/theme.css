@@ -547,4 +547,22 @@ body:has(.catalog) .sl-markdown-content > .catalog { margin-top: 0; }
 .main-pane main > .content-panel:last-child,
 .main-pane main > .content-panel:last-child > .sl-container { flex: 1; }
 .main-pane .site-footer { margin-top: auto; }
+
+/* Align the edit link with the collection date at the end of a guide. */
+@media (min-width: 40rem) {
+	.sl-container:has(.sl-markdown-content #джерела) > .sl-markdown-content > p:last-child {
+		padding-inline-end: 50%;
+	}
+	.sl-container:has(.sl-markdown-content #джерела) > footer.sl-flex {
+		margin-top: -1.5rem;
+	}
+	.sl-container:has(.sl-markdown-content #джерела) > footer.sl-flex .meta {
+		justify-content: flex-end;
+		margin-top: 0;
+	}
+}
+
+.main-pane main > .content-panel:last-child {
+	padding-bottom: 0.5rem;
+}
 }
