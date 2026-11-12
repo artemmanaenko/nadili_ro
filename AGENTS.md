@@ -115,7 +115,8 @@ Skip a section only when it has nothing in it.
    pages: one `<div class="memo-step">` per institution with its checklist (`- [ ]`) and only
    the facts needed on the spot (form fields to tick, amounts, IBAN, where to book). No
    headings inside (they would appear in the navigation), no links (paper), no images.
-5. **`## Джерела`** - links, then one line: `Зібрано YYYY-MM-DD.` Nothing else: the site
+5. **`## Джерела`** - links. Set `collectedOn: "YYYY-MM-DD"` in frontmatter to show
+   `Зібрано YYYY-MM-DD.` below the list. Nothing else: the site
    is community experience, not legal advice, so no "verified / not verified" notes.
 
 Other rules:
