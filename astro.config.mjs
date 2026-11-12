@@ -21,6 +21,7 @@ export default defineConfig({
 				root: { label: 'Українська', lang: 'uk' },
 			},
 			social: [
+				{ icon: 'telegram', label: 'Telegram', href: 'https://t.me/romaniaitcommunity' },
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/artemmanaenko/ua_it_in_ro' },
 			],
 			editLink: {

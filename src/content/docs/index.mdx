@@ -8,6 +8,10 @@ hero:
     - text: Почати
       link: guides/getting-started/
       icon: right-arrow
+    - text: Спільнота в Telegram
+      link: https://t.me/romaniaitcommunity
+      icon: telegram
+      variant: secondary
     - text: Додати інструкцію
       link: https://github.com/artemmanaenko/ua_it_in_ro
       icon: external
@@ -16,9 +20,12 @@ hero:
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-<CardGrid stagger>
+<CardGrid>
 	<Card title="Покроково" icon="list-format">
 		Кожна інструкція — це послідовність кроків, яку можна пройти від початку до кінця.
+	</Card>
+	<Card title="Зі спільноти" icon="telegram">
+		Сайт виріс із Telegram-спільноти [Romania IT Community](https://t.me/romaniaitcommunity). Питання та обговорення — там.
 	</Card>
 	<Card title="Відкрито" icon="github">
 		Знайшли помилку чи маєте досвід? Відкрийте pull request.
