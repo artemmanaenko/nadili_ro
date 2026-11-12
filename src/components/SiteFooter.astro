@@ -3,10 +3,15 @@ import DefaultFooter from '@astrojs/starlight/components/Footer.astro';
 import GuideCredits from './GuideCredits.astro';
 
 const { editUrl, lastUpdated } = Astro.locals.starlightRoute;
+const base = `${import.meta.env.BASE_URL.replace(/\/+$/, "")}/`;
 ---
 {(editUrl || lastUpdated) && <DefaultFooter />}
 <GuideCredits placement="footer" />
-<footer class="site-footer" data-pagefind-ignore>© Nadili 2026 · Артем Манаєнко</footer>
+<footer class="site-footer" data-pagefind-ignore>
+	<p>Довідкова інформація, не індивідуальна юридична чи податкова консультація.</p>
+	<p><a href={`${base}legal/`}>Правова інформація</a> · <a href={`${base}privacy/`}>Приватність</a> · <a href="mailto:contacts@nadili.eu">Зв’язатися</a></p>
+	<p>© Nadili 2026 · Артем Манаєнко</p>
+</footer>
 
 <style>
 	.site-footer {
