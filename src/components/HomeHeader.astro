@@ -1,19 +1,39 @@
 ---
-import DefaultHeader from '@astrojs/starlight/components/Header.astro';
+import Search from '@astrojs/starlight/components/Search.astro';
 import SiteTitle from '@astrojs/starlight/components/SiteTitle.astro';
-const home = Astro.locals.starlightRoute.id === '';
+import { repositoryUrl } from '../../repository.mjs';
+
+const { id } = Astro.locals.starlightRoute;
+const base = `${import.meta.env.BASE_URL.replace(/\/+$/, '')}/`;
+const links = [
+	{ label: 'Як додати матеріал', href: `${base}guides/getting-started/#як-додати-інструкцію` },
+	{ label: 'Про сайт', href: `${base}about/` },
+	{ label: 'GitHub', href: repositoryUrl },
+];
 ---
-{home ? (
-	<div class="home-header">
-		<SiteTitle />
-	</div>
-) : <DefaultHeader />}
+<div class:list={['site-header', { home: id === '' }]}>
+	<SiteTitle />
+	{id !== '' && <div class="search"><Search /></div>}
+	<nav class="desktop-links" aria-label="Посилання сайту">
+		{links.map(({ href, label }) => <a href={href}>{label}</a>)}
+	</nav>
+	<details class="mobile-links">
+		<summary>Посилання</summary>
+		<nav aria-label="Посилання сайту">
+			{links.map(({ href, label }) => <a href={href}>{label}</a>)}
+		</nav>
+	</details>
+</div>
+
 <style>
-	.home-header {
-		display: flex;
-		align-items: center;
-		width: 100%;
-		max-width: 72rem;
-		margin-inline: auto;
-	}
+	.site-header { display: flex; align-items: center; gap: 1rem; width: 100%; height: 100%; }
+	.home { max-width: 72rem; margin-inline: auto; }
+	.search { flex: 1; min-width: 0; }
+	.desktop-links { display: flex; align-items: center; gap: 1rem; margin-inline-start: auto; }
+	.desktop-links a, .mobile-links a { color: var(--sl-color-accent); font-size: var(--sl-text-sm); white-space: nowrap; }
+	.mobile-links { display: none; margin-inline-start: auto; position: relative; }
+	.mobile-links summary { cursor: pointer; color: var(--sl-color-accent); font-size: var(--sl-text-sm); }
+	.mobile-links nav { position: absolute; inset-inline-end: 0; top: 100%; z-index: 1; display: grid; min-width: max-content; padding: 0.5rem 1rem; border: 1px solid var(--sl-color-hairline); border-radius: 8px; background: var(--sl-color-black); }
+	.mobile-links a { display: flex; align-items: center; min-height: 44px; }
+	@media (max-width: 70rem) { .desktop-links { display: none; } .mobile-links { display: block; } }
 </style>
