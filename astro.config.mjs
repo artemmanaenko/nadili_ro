@@ -10,9 +10,8 @@ export default defineConfig({
 	base: `/${repositoryName}`,
 	integrations: [
 		starlight({
-			title: 'Українське IT у Румунії',
-			// Community mark shown in the header next to the site title.
-			logo: { src: './src/assets/logo.svg' },
+			title: 'Nadili',
+			logo: { src: './src/assets/logo.svg', replacesTitle: true },
 			customCss: ['./src/styles/theme.css'],
 			// Right-hand navigation: sections, with subsections shown for the current one.
 			tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 3 },
@@ -22,6 +21,7 @@ export default defineConfig({
 			components: {
 				Head: './src/components/Head.astro',
 				Header: './src/components/HomeHeader.astro',
+				Footer: './src/components/SiteFooter.astro',
 				ThemeProvider: './src/components/ThemeProvider.astro',
 				ThemeSelect: './src/components/ThemeSelect.astro',
 				PageTitle: './src/components/PageTitle.astro',
@@ -31,10 +31,6 @@ export default defineConfig({
 			locales: {
 				root: { label: 'Українська', lang: 'uk' },
 			},
-			social: [
-				{ icon: 'telegram', label: 'Telegram', href: 'https://t.me/romaniaitcommunity' },
-				{ icon: 'github', label: 'GitHub', href: repositoryUrl },
-			],
 			editLink: {
 				baseUrl: `${repositoryUrl}/edit/main/`,
 			},

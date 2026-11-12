@@ -18,7 +18,7 @@ const base = `${import.meta.env.BASE_URL.replace(/\/+$/, '')}/`;
 ---
 <div class="catalog" data-pagefind-ignore>
 	<div class="intro">
-		<div><h1 id="_top">Довідник життя в Румунії</h1><p>Інструкції та відповіді від української IT-спільноти.</p></div>
+		<div><h1 id="_top">Довідник життя в Румунії</h1><p>Документи, послуги та повсякденні процедури.</p></div>
 		<Search class="home-search" />
 	</div>
 	<div class="catalog-layout">
@@ -48,7 +48,6 @@ const base = `${import.meta.env.BASE_URL.replace(/\/+$/, '')}/`;
 			))}
 		</div>
 	</div>
-	<footer><a href={`${base}guides/getting-started/#як-додати-інструкцію`}>Як додати матеріал <Icon name="external" /></a></footer>
 </div>
 <script>
 	const sections = [...document.querySelectorAll<HTMLElement>('[data-topic]')];
@@ -80,8 +79,7 @@ const base = `${import.meta.env.BASE_URL.replace(/\/+$/, '')}/`;
 	.home-search :global(button[data-open-modal] > kbd > kbd) { margin:0; }
 	:global(.sl-markdown-content) .catalog .catalog-layout,
 	:global(.sl-markdown-content) .catalog .catalog-content,
-	:global(.sl-markdown-content) .catalog section,
-	:global(.sl-markdown-content) .catalog footer { margin-top:0; }
+	:global(.sl-markdown-content) .catalog section { margin-top:0; }
 	.catalog-layout { display:grid; grid-template-columns:15rem minmax(0, 1fr); gap:2rem; padding:20px 0; }
 	.topic-nav p { margin:0 0 .8rem; font-size:.85rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; }
 	.topic-nav a { display:flex; align-items:center; gap:.75rem; min-height:44px; padding:.6rem .75rem; border-radius:.6rem; color:var(--sl-color-white); text-decoration:none; }
@@ -100,8 +98,6 @@ const base = `${import.meta.env.BASE_URL.replace(/\/+$/, '')}/`;
 	.material-description { display:block; margin-top:5px; color:var(--sl-color-gray-2); font-size:15px; line-height:1.4; }
 	.arrow { color:#a44406; width:20px; height:20px; flex:none; }
 	.topic-picker { display:none; }
-	footer { display:flex; justify-content:flex-end; padding:8px 0 24px; }
-	footer a { display:inline-flex; align-items:center; gap:.3rem; min-height:44px; color:#a44406; }
 	.catalog a:focus-visible, .catalog select:focus-visible, .home-search :global(button:focus-visible) { outline:2px solid #a44406; outline-offset:3px; }
 	@media (min-width:801px) and (max-width:1000px) {
 		.intro { display:block; }
@@ -126,6 +122,5 @@ const base = `${import.meta.env.BASE_URL.replace(/\/+$/, '')}/`;
 		.material strong { font-size:16px; }
 		.material-description { font-size:14px; }
 		.arrow { align-self:center; width:18px; height:18px; }
-		footer { justify-content:flex-start; }
 	}
 </style>

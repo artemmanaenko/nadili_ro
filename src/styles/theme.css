@@ -52,6 +52,14 @@
 }
 
 /* Editorial page titles. */
+.site-title img {
+	width: 8rem;
+	height: auto;
+}
+.header .social-icons:empty {
+	display: none;
+}
+
 h1#_top,
 .hero h1 {
 	font-family: var(--font-editorial);
@@ -522,4 +530,3 @@ body:has(.catalog) .sl-container { max-width: 72rem; }
 body:has(.catalog) .content-panel { padding-block: 0; }
 body:has(.catalog) .sl-markdown-content { line-height: normal; }
 body:has(.catalog) .sl-markdown-content > .catalog { margin-top: 0; }
-body:has(.catalog) .content-panel:has(.catalog) + .content-panel { display: none; }

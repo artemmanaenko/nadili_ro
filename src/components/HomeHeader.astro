@@ -1,29 +1,19 @@
 ---
 import DefaultHeader from '@astrojs/starlight/components/Header.astro';
-import logo from '../assets/logo.svg';
-import { Icon } from '@astrojs/starlight/components';
-import { repositoryUrl } from '../../repository.mjs';
-const home = Astro.url.pathname.replace(/\/$/, '') === import.meta.env.BASE_URL.replace(/\/$/, '');
+import SiteTitle from '@astrojs/starlight/components/SiteTitle.astro';
+const home = Astro.locals.starlightRoute.id === '';
 ---
 {home ? (
 	<div class="home-header">
-		<a class="home-brand" href={import.meta.env.BASE_URL}>
-			<img src={logo.src} alt="" width="42" height="42" />
-			<span>Українське IT<br />у Румунії</span>
-		</a>
-		<nav aria-label="Спільнота">
-			<a href="https://t.me/romaniaitcommunity" aria-label="Telegram"><Icon name="telegram" /><span>Telegram</span></a>
-			<a href={repositoryUrl} aria-label="GitHub"><Icon name="github" /><span>GitHub</span></a>
-		</nav>
+		<SiteTitle />
 	</div>
 ) : <DefaultHeader />}
 <style>
-	.home-header { display:flex; align-items:center; justify-content:space-between; width:100%; max-width: 72rem; margin:auto; gap:1rem; }
-	.home-brand { display:flex; align-items:center; gap:.8rem; color:#a44406; font-weight:700; font-size:1.15rem; line-height:1.05; text-decoration:none; }
-	.home-brand img { width:42px; height:42px; }
-	nav { display:flex; gap:1.5rem; }
-	nav a { display:flex; align-items:center; gap:.4rem; min-height:44px; color:var(--sl-color-white); text-decoration:none; font-size:.9rem; }
-	nav a :global(svg) { width:20px; height:20px; flex:none; }
-	nav a:hover { color:var(--sl-color-accent); text-decoration:underline; }
-	@media(max-width:40rem) { .home-brand { font-size:.95rem; gap:.5rem; } .home-brand img { width:34px; height:34px; } nav { gap:.25rem; } nav a { min-width:44px; justify-content:center; } nav a span { display:none; } }
+	.home-header {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		max-width: 72rem;
+		margin-inline: auto;
+	}
 </style>

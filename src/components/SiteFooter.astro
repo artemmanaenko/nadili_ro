@@ -1,0 +1,38 @@
+---
+import DefaultFooter from '@astrojs/starlight/components/Footer.astro';
+import { repositoryUrl } from '../../repository.mjs';
+
+const { id, editUrl, lastUpdated } = Astro.locals.starlightRoute;
+const base = `${import.meta.env.BASE_URL.replace(/\/+$/, '')}/`;
+---
+
+{(editUrl || lastUpdated) && <DefaultFooter />}
+<footer class="site-footer" data-pagefind-ignore>
+	<span>Nadili · 2026</span>
+	<nav aria-label="Посилання сайту">
+		{id === '' && <a href={`${base}guides/getting-started/#як-додати-інструкцію`}>Як додати матеріал</a>}
+		<a href={`${base}about/`} aria-current={id === 'about' ? 'page' : undefined}>Про сайт</a>
+		<a href={repositoryUrl}>GitHub</a>
+	</nav>
+</footer>
+
+<style>
+	.site-footer, nav {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0 1rem;
+	}
+	.site-footer {
+		justify-content: space-between;
+		border-top: 1px solid var(--sl-color-hairline);
+		padding-block: 0.75rem;
+		color: var(--sl-color-gray-3);
+		font-size: var(--sl-text-sm);
+	}
+	nav a {
+		display: inline-flex;
+		align-items: center;
+		min-height: 44px;
+	}
+</style>
