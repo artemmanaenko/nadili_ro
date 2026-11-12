@@ -12,6 +12,12 @@ Propose corrections, new guides, reference material and useful contacts through 
 
 In the PR, describe what changed and where the material came from: link to an official source or a specific Telegram message or discussion. For a first-hand report without a public link, describe it in the PR, including the date, circumstances and uncertainty, without disclosing private data; link to the PR in the page's sources. Do not link only to the community's general page instead of a specific discussion.
 
+## Rights in contributions
+
+You retain copyright in your contribution. By submitting a pull request, you grant the project a non-exclusive, worldwide, royalty-free, ongoing permission to reproduce, edit, translate, publish and distribute your contribution as part of the repository and site. You confirm that you have the rights or permission needed to grant this permission. Do not submit third-party material unless its terms permit these uses; identify its source and applicable terms.
+
+The project does not claim ownership of your contribution. See [RIGHTS.md](RIGHTS.md) for the repository's use terms and the rights retained by others.
+
 ## Checks
 
 Node.js 24 and pnpm 11 are required. From the repository root:

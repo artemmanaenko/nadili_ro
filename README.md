@@ -1,11 +1,15 @@
 # Ukrainian IT in Romania
 
-Practical guides for Ukrainian IT professionals in Romania, built with [Astro Starlight](https://starlight.astro.build).
+A non-commercial community project with practical guides for Ukrainian IT professionals in Romania, built with [Astro Starlight](https://starlight.astro.build).
 
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for source requirements, page formats and checks.
 Merges to `main` deploy automatically.
+
+## Copyright and use
+
+All rights reserved by the respective copyright holders. See [RIGHTS.md](RIGHTS.md) for use terms and contributor rights.
 
 ## Commands
 
