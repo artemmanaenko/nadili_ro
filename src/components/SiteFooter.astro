@@ -1,4 +1,12 @@
-<footer class="site-footer" data-pagefind-ignore>© NADILI 2026 · Артем Манаєнко</footer>
+---
+const base = `${import.meta.env.BASE_URL.replace(/\/+$/, '')}/`;
+---
+<footer class="site-footer" data-pagefind-ignore>
+	<p>
+		© NADILI 2026 · Артем Манаєнко{' '}
+		<span class="privacy-link"><span aria-hidden="true">·</span> <a href={`${base}privacy/`} rel="privacy-policy">Приватність</a></span>
+	</p>
+</footer>
 
 <style>
 	.site-footer {
@@ -9,5 +17,14 @@
 		color: var(--sl-color-gray-3);
 		font-size: var(--sl-text-sm);
 		text-align: center;
+	}
+
+	.privacy-link {
+		white-space: nowrap;
+	}
+
+	.site-footer a {
+		color: inherit;
+		text-underline-offset: 0.15em;
 	}
 </style>

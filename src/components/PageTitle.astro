@@ -67,12 +67,11 @@ const { id } = Astro.locals.starlightRoute;
 		document.documentElement.classList.remove('print-checklist-only');
 	});
 
-	// Make Markdown checklists tickable. Ticks are a per-reader convenience,
-	// kept in this browser only; the page works the same without storage.
+	// Keep checklist ticks only for this tab's session, without persistent tracking.
 	const key = `checklist:${location.pathname}`;
 	let saved: boolean[] = [];
 	try {
-		saved = JSON.parse(localStorage.getItem(key) ?? '[]');
+		saved = JSON.parse(sessionStorage.getItem(key) ?? '[]');
 	} catch {}
 	const boxes = [
 		...document.querySelectorAll<HTMLInputElement>('.sl-markdown-content .task-list-item input[type="checkbox"]'),
@@ -82,7 +81,7 @@ const { id } = Astro.locals.starlightRoute;
 		box.checked = Boolean(saved[i]);
 		box.addEventListener('change', () => {
 			try {
-				localStorage.setItem(key, JSON.stringify(boxes.map((b) => b.checked)));
+				sessionStorage.setItem(key, JSON.stringify(boxes.map((b) => b.checked)));
 			} catch {}
 		});
 	});
