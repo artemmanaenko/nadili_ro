@@ -1,6 +1,6 @@
-# Ukrainian IT in Romania
+# Nadili Romania
 
-A community project with practical guides for Ukrainian IT professionals in Romania, built with [Astro Starlight](https://starlight.astro.build).
+[Nadili Romania](https://artemmanaenko.github.io/nadili_ro/) is a community guide for Ukrainians in Romania, built with [Astro Starlight](https://starlight.astro.build).
 
 ## Contributing
 
