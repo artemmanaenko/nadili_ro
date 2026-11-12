@@ -393,15 +393,15 @@ h1#_top,
 .sl-markdown-content {
 	counter-reset: section;
 }
-.sl-markdown-content > .sl-heading-wrapper.level-h2 ~ .sl-heading-wrapper.level-h2 {
+.sl-markdown-content > .sl-heading-wrapper.level-h2:has(#кроки) ~ .sl-heading-wrapper.level-h2 {
 	margin-top: 1.75rem;
 	padding-top: 1.25rem;
 	border-top: 1px solid var(--sl-color-gray-5);
 }
-.sl-markdown-content > .sl-heading-wrapper.level-h2 ~ .sl-heading-wrapper.level-h2:not(:has(#джерела)) {
+.sl-markdown-content > .sl-heading-wrapper.level-h2:has(#кроки) ~ .sl-heading-wrapper.level-h2:not(:has(#джерела)) {
 	counter-increment: section;
 }
-.sl-markdown-content > .sl-heading-wrapper.level-h2 ~ .sl-heading-wrapper.level-h2:not(:has(#джерела))::before {
+.sl-markdown-content > .sl-heading-wrapper.level-h2:has(#кроки) ~ .sl-heading-wrapper.level-h2:not(:has(#джерела))::before {
 	content: 'Крок ' counter(section);
 	display: block;
 	width: 100%;
@@ -412,11 +412,11 @@ h1#_top,
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
 }
-.sl-markdown-content > .sl-heading-wrapper.level-h2 ~ .sl-heading-wrapper.level-h2:not(:has(#джерела)) h2 {
+.sl-markdown-content > .sl-heading-wrapper.level-h2:has(#кроки) ~ .sl-heading-wrapper.level-h2:not(:has(#джерела)) h2 {
 	margin-top: 0;
 }
 @media print {
-	.sl-markdown-content > .sl-heading-wrapper.level-h2 ~ .sl-heading-wrapper.level-h2 {
+	.sl-markdown-content > .sl-heading-wrapper.level-h2:has(#кроки) ~ .sl-heading-wrapper.level-h2 {
 		margin-top: 1.25rem;
 		padding-top: 1rem;
 	}
