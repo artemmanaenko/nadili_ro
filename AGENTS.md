@@ -43,10 +43,10 @@ Write for someone doing this for the first time, without knowing Romanian instit
   another route or stage. Use the description and summary for audience, eligibility and context.
   The summary and overview must make the first action and final result clear. Explain an
   unfamiliar subject in one short phrase that tells the reader what it does.
-- **Overview.** Show the route in order, with an action and its purpose or result. Put the
-  execution details in the linked section. Name the actual provider, institution or service
-  and the result of contacting it. Use a short navigation map, not a second explanation of
-  the procedure. “Collect documents → submit an application” is not an actionable overview.
+- **Overview.** Use `Кроки` to navigate the guide in order. Give each stage a specific action
+  title. Add one short sentence only if it clarifies the transition to the next stage or
+  sets an expectation the title cannot convey. Keep inputs, decisions, and instructions
+  for what to bring, click, or save in the linked section.
 - **Stages.** Organize the route around the reader's visits and requests, not document types.
   Give each separate provider or service its own stage when the reader must contact it to
   obtain something. Combine actions done at the same place; make dependencies explicit and
@@ -116,8 +116,8 @@ Skip a section only when it has nothing in it.
    `facts={[]}` when these are unknown; never fill the card with an acronym expansion or a
    generic instruction just to reach a count. No "where to go": the steps cover that.
 2. **`## Кроки`** - a short overview in the Starlight `<Steps>` component: one step per
-   institution or stage, each linking to its section. Start with a bold action and add
-   at most one sentence on the purpose or result.
+   institution or stage, each linking to its section. Use a bold action title and follow
+   the overview rule above for any extra text.
 3. **One `##` section per institution or actionable stage** (`## Медкомісія`, `## DRPCIV (МРЕО)`,
    `## Посольство України`), in route order. Do not create a separate “Підготовка” section
    just to hold background or legal analysis. Everything about that place
