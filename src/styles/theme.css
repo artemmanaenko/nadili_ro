@@ -403,6 +403,18 @@ h1#_top,
 	margin-top: 1.5rem;
 }
 
+/* Sources stay compact even when Markdown renders a loose list with paragraphs. */
+.sl-markdown-content > .sl-heading-wrapper:has(#джерела) ~ ul {
+	font-size: 0.875rem;
+	line-height: 1.45;
+}
+.sl-markdown-content > .sl-heading-wrapper:has(#джерела) ~ ul > li {
+	margin-block: 0.25rem;
+}
+.sl-markdown-content > .sl-heading-wrapper:has(#джерела) ~ ul > li > p {
+	margin-block: 0;
+}
+
 /* Print: smaller type and margins, no sources section. A guide is printed to
    take along, and links cannot be followed from paper. */
 @media print {
