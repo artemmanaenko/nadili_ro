@@ -214,7 +214,11 @@ CSS, `<hr>`, colours or spacing.
 - **Scans and screenshots.** Crop inline illustrations to the fields being explained. If a
   filled document is useful as an example, link the complete anonymized image, including
   every page of the example. Permanently remove private data and replace it with fictional
-  values where useful. Check the exported images for completeness and legibility.
+  values where useful. Mask only the individual sensitive values, keeping surrounding text,
+  field labels and layout intact. Do not replace whole paragraphs to anonymize a few fields.
+  Label masked values by role or field when this helps readers understand the example.
+  Check every repeated occurrence across all pages; hiding a name once is not sufficient.
+  Check the exported images for completeness and legibility.
 - **Reference guide:** `src/content/docs/guides/exchange-driving-licence.mdx`. Follow how it
   makes actions executable (booking option, form, payment confirmation), not just its markup.
 - **Romanian terms** on the page as the reader will see them on site or on paper: `Grupa 1`,
