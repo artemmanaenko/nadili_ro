@@ -8,6 +8,8 @@ import { Steps } from '@astrojs/starlight/components';
 import Summary from '../../../components/Summary.astro';
 import PrintMemo from '../../../components/PrintMemo.astro';
 
+export const examples = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/examples/child-family-residence`;
+
 <Summary facts={[['Збори', '265 леїв + 120 євро в леях'], ['Розгляд', 'До 30 днів від подачі']]}>
 	<Fragment slot="highlight">
 		Якщо неповнолітня дитина з України має тимчасовий захист у Румунії та живе з батьком або матір’ю з чинною робочою посвідкою, подавайте на сімейну посвідку дитини напряму в IGI (міграційну службу). Почніть зі свідоцтва про народження та його перекладу. Окреме погодження для візи D/VF не потрібне.
@@ -44,7 +46,28 @@ import PrintMemo from '../../../components/PrintMemo.astro';
 Якщо опіка спільна, оформіть у нотаріуса згоду другого з батьків (*consimțământ*). Укажіть, що він або вона погоджується на проживання дитини зі спонсором у Румунії за вказаною адресою та на оформлення посвідки. Згоду можна включити до спільної нотаріальної декларації.
 :::
 
-![Знеособлений фрагмент декларації про утримання дитини. Kid Doe — дитина, John Doe і Jane Doe — батьки.](../../../assets/child-family-residence/declaration-example.png)
+### Заповнені зразки
+
+У декларації John Doe і Jane Doe — батьки, Kid Doe — дитина. Довідки з матеріалів спільноти видані дорослому. Для заяви дитини довідку про страхування та медичну довідку оформлюйте на її ім’я.
+
+<a class="example-link" href={`${examples}/declaration-1.webp`} target="_blank" rel="noopener">
+	<span><strong>Нотаріальна декларація батьків</strong><br />Сторінка 1. Дані батьків і дитини, утримання та початок згоди на проживання.</span>
+</a>
+<a class="example-link" href={`${examples}/declaration-2.webp`} target="_blank" rel="noopener">
+	<span><strong>Продовження декларації</strong><br />Сторінка 2. Згода на проживання та оформлення посвідки, відомості про переклад.</span>
+</a>
+<a class="example-link" href={`${examples}/declaration-3.webp`} target="_blank" rel="noopener">
+	<span><strong>Посвідчувальний напис нотаріуса</strong><br />Сторінка 3. Як нотаріус засвідчив декларацію.</span>
+</a>
+<a class="example-link" href={`${examples}/employment-certificate.webp`} target="_blank" rel="noopener">
+	<span><strong>Довідка з роботи</strong><br />Adeverință de salariat.</span>
+</a>
+<a class="example-link" href={`${examples}/insurance-certificate.webp`} target="_blank" rel="noopener">
+	<span><strong>Довідка про страхування від CAS</strong><br />Adeverință de asigurat.</span>
+</a>
+<a class="example-link" href={`${examples}/medical-certificate.webp`} target="_blank" rel="noopener">
+	<span><strong>Медична довідка</strong><br />Adeverință medicală.</span>
+</a>
 
 ### Оплата
 
@@ -165,4 +188,4 @@ import PrintMemo from '../../../components/PrintMemo.astro';
 - [eConsulat — звільнення українських документів від апостиля](https://econsulat.ro/ApostilareSupralegalizare/DescriereServiciu/600000004)
 - [Договір між Румунією та Україною про правову допомогу, стаття 13](https://legislatie.just.ro/Public/DetaliiDocumentAfis/59642)
 - [Обговорення в Telegram: досвід подачі без візи D/VF](https://t.me/romaniaitcommunity/11/1075391)
-- [Матеріали спільноти: приклад декларації](https://github.com/artemmanaenko/nadili_ro/pull/15)
+- [Матеріали спільноти: зразки декларації та довідок](https://github.com/artemmanaenko/nadili_ro/pull/15)

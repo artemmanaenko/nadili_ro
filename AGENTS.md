@@ -200,10 +200,10 @@ CSS, `<hr>`, colours or spacing.
   everyone ticks, dashed = depends), not as prose. A full filled example goes to
   `public/examples/` with personal data replaced (`DOE John`, zeros) and is linked with the
   `example-link` card.
-- **Scans and screenshots.** Use a cropped image for an inline illustration. Keep only the
-  fields the reader needs. Permanently remove private data from the exported image. Use
-  fictional values when they help explain whose data goes in each field. Check the export
-  before adding it to the repository.
+- **Scans and screenshots.** Crop inline illustrations to the fields being explained. If a
+  filled document is useful as an example, link the complete anonymized image, including
+  every page of the example. Permanently remove private data and replace it with fictional
+  values where useful. Check the exported images for completeness and legibility.
 - **Reference guide:** `src/content/docs/guides/exchange-driving-licence.mdx`. Follow how it
   makes actions executable (booking option, form, payment confirmation), not just its markup.
 - **Romanian terms** on the page as the reader will see them on site or on paper: `Grupa 1`,
