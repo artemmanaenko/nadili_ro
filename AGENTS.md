@@ -15,7 +15,8 @@ follows these rules, then open a pull request.
 For reference pages and contact lists, use the language, voice, facts and source rules below.
 Use a concise format suited to the material; steps, checklists and a print memo are only required
 for procedural guides. Public contact details intended for publication may be included; do not
-publish private personal data from submissions.
+publish private personal data from submissions. The contact directory has no public
+`Джерела` section; record its sources in the pull request.
 
 ## Workflow
 
