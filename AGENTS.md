@@ -73,15 +73,24 @@ Write for someone doing this for the first time, without knowing Romanian instit
   The summary and overview must make the first action and final result clear. Explain an
   unfamiliar subject in one short phrase that tells the reader what it does.
 - **Overview.** Show the route in order, with an action and its purpose or result. Put the
-  execution details in the linked section. Start with the first action the reader can take.
-  Resolve routine questions about the route, documents and form fields in the guide itself.
+  execution details in the linked section. Name the actual provider, institution or service
+  and the result of contacting it. Use a short navigation map, not a second explanation of
+  the procedure. “Collect documents → submit an application” is not an actionable overview.
+- **Stages.** Organize the route around the reader's visits and requests, not document types.
+  Give each separate provider or service its own stage when the reader must contact it to
+  obtain something. Combine actions done at the same place; make dependencies explicit and
+  do not imply an obligatory order between independent actions. A document the reader already
+  has belongs in the relevant stage's checklist, not a new visit.
 - **Execution.** In each detailed procedure, name where to go or click, what to bring or
   select, and what to receive or save. Include only the details needed for that action.
   “Зарезервуйте назву” needs a route to the service and the resulting confirmation;
   “Виберіть коди” needs a source for the codes and a way to choose the applicable ones.
-- **Documents.** Explain where to get unfamiliar documents before the checklist. Link the
-  actual blank or service at the point of use; a source list at the bottom is not navigation.
-  Start checklist items with a Ukrainian name and retain the official Romanian label.
+- **Documents.** Turn obtaining unfamiliar documents into instructions within the issuing
+  provider's stage: whom to contact, what to request, what information or documents to supply,
+  and what to collect or save. Use numbered actions when there is a sequence. Link the actual
+  blank or service at the point of use. Keep the final document list as a checklist for the
+  visit that needs it; it does not replace the route. Start checklist items with a Ukrainian
+  name and retain the official Romanian label.
 - **Choices.** Keep one readable route for the intended audience. If its route differs from
   the general process, state the condition and explain which step changes or can be skipped.
   Reuse the shared steps where the sources support them. At each choice, give the criterion
