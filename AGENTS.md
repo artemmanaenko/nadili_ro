@@ -59,6 +59,11 @@ real experience.
 - Minimum text that lets a newcomer act. Keep details that explain what to do, who needs it,
   how to choose, or what result to expect. Remove background, not necessary instructions.
   Long explanations belong in the institution's section, not in the overview steps.
+- Prefer a clear, executable route over exhaustive coverage. Include a detail only when it
+  changes the reader's action, choice or outcome, or prevents a material mistake. Keep legal
+  analysis and research debates out of the procedure; cite supporting sources and retain
+  unresolved editorial questions in working notes. Never shorten away a blocking prerequisite
+  or turn an unverified detail into a requirement.
 - Conditions ("only if", "who this applies to") and risks go into a Starlight aside, not into
   a sentence (see Page design).
 - Keep each explanation where it is acted on; link to it instead of repeating it. The summary,
