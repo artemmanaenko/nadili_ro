@@ -50,24 +50,28 @@ export const examples = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/examples
 
 У декларації John Doe і Jane Doe — батьки, Kid Doe — дитина. Довідки з матеріалів спільноти видані дорослому. Для заяви дитини довідку про страхування та медичну довідку оформлюйте на її ім’я.
 
-<a class="example-link" href={`${examples}/declaration-1.webp`} target="_blank" rel="noopener">
-	<span><strong>Нотаріальна декларація батьків</strong><br />Сторінка 1. Дані батьків і дитини, утримання та початок згоди на проживання.</span>
-</a>
-<a class="example-link" href={`${examples}/declaration-2.webp`} target="_blank" rel="noopener">
-	<span><strong>Продовження декларації</strong><br />Сторінка 2. Згода на проживання та оформлення посвідки, відомості про переклад.</span>
-</a>
-<a class="example-link" href={`${examples}/declaration-3.webp`} target="_blank" rel="noopener">
-	<span><strong>Посвідчувальний напис нотаріуса</strong><br />Сторінка 3. Як нотаріус засвідчив декларацію.</span>
-</a>
-<a class="example-link" href={`${examples}/employment-certificate.webp`} target="_blank" rel="noopener">
-	<span><strong>Довідка з роботи</strong><br />Adeverință de salariat.</span>
-</a>
-<a class="example-link" href={`${examples}/insurance-certificate.webp`} target="_blank" rel="noopener">
-	<span><strong>Довідка про страхування від CAS</strong><br />Adeverință de asigurat.</span>
-</a>
-<a class="example-link" href={`${examples}/medical-certificate.webp`} target="_blank" rel="noopener">
-	<span><strong>Медична довідка</strong><br />Adeverință medicală.</span>
-</a>
+<div class="example-gallery">
+	<div class="example-document">
+		<span><strong>Нотаріальна декларація батьків</strong><br />Згода на проживання й посвідку, засвідчення нотаріуса.</span>
+		<div class="example-pages" role="group" aria-label="Сторінки нотаріальної декларації">
+			<span aria-hidden="true">Сторінки</span>
+			<a href={`${examples}/declaration-1.webp`} target="_blank" rel="noopener" aria-label="Сторінка 1: дані батьків і дитини, утримання">1</a>
+			<a href={`${examples}/declaration-2.webp`} target="_blank" rel="noopener" aria-label="Сторінка 2: згода на проживання та посвідку">2</a>
+			<a href={`${examples}/declaration-3.webp`} target="_blank" rel="noopener" aria-label="Сторінка 3: посвідчувальний напис нотаріуса">3</a>
+		</div>
+	</div>
+	<div class="example-grid">
+		<a class="example-link" href={`${examples}/employment-certificate.webp`} target="_blank" rel="noopener">
+			<span><strong>Довідка з роботи</strong><br />Adeverință de salariat</span>
+		</a>
+		<a class="example-link" href={`${examples}/insurance-certificate.webp`} target="_blank" rel="noopener">
+			<span><strong>Довідка про страхування</strong><br />Adeverință de asigurat (CAS)</span>
+		</a>
+		<a class="example-link" href={`${examples}/medical-certificate.webp`} target="_blank" rel="noopener">
+			<span><strong>Медична довідка</strong><br />Adeverință medicală</span>
+		</a>
+	</div>
+</div>
 
 ### Оплата
 
