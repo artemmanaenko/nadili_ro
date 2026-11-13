@@ -45,4 +45,6 @@ git diff --check
 
 Preview the page with `pnpm dev`. For procedures, also check the printed memo: 1–2 A4 pages, covering every option shown in tabs. Before opening a PR, review the Ukrainian text, sources and private data as described in [AGENTS.md](AGENTS.md).
 
+For every new content page, add a topic-specific social preview via `socialImage` as described in [AGENTS.md](AGENTS.md). Check the generated OG/Twitter image URLs and inspect the cover at a small preview size; the site's shared fallback does not complete this requirement.
+
 CI checks the build, whitespace in the diff and the presence of a `## Джерела` section with an HTTP(S) link in changed content under `src/content/docs/guides/`. The instructional page `getting-started.mdx` and contact directory `useful-contacts.mdx` are excluded. When reviewing the content, open the sources and check whether they are current, reliable and support the claims.
