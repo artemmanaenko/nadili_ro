@@ -1,10 +1,14 @@
 ---
 import DefaultHead from '@astrojs/starlight/components/Head.astro';
 import { getImage } from 'astro:assets';
+import defaultSocialImage from '../assets/home-social-card.jpg';
 
-const { socialImage } = Astro.locals.starlightRoute.entry.data;
-const card = socialImage && await getImage({ src: socialImage.src, format: 'jpeg' });
-const cardUrl = card && new URL(card.src, Astro.site ?? Astro.url).href;
+const socialImage = Astro.locals.starlightRoute.entry.data.socialImage ?? {
+	src: defaultSocialImage,
+	alt: 'NADILI: переплетені стрічки в кольорах прапорів України та Румунії.',
+};
+const card = await getImage({ src: socialImage.src, format: 'jpeg' });
+const cardUrl = new URL(card.src, Astro.site ?? Astro.url).href;
 ---
 
 <DefaultHead />
