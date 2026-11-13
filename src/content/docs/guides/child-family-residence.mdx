@@ -2,6 +2,9 @@
 title: ВНЖ для дитини (перша подача)
 description: Як подати в Румунії без візи D/VF на першу сімейну посвідку для дитини з тимчасовим захистом, якщо один із батьків має робочу посвідку.
 collectedOn: "2026-11-13"
+contributors:
+  - Олег
+  - Ігор
 ---
 
 import { Steps, TabItem, Tabs } from '@astrojs/starlight/components';
@@ -9,6 +12,7 @@ import Summary from '../../../components/Summary.astro';
 import PrintMemo from '../../../components/PrintMemo.astro';
 
 export const examples = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/examples/child-family-residence`;
+export const translatorContacts = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/guides/useful-contacts/#перекладачі`;
 
 <Summary facts={[['Збори', '265 леїв + 120 євро в леях'], ['Розгляд', 'До 30 днів від подачі']]}>
 	<Fragment slot="highlight">
@@ -42,13 +46,15 @@ export const examples = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/examples
 
 <Steps>
 
-1. **Зверніться до бюро перекладів.** Замовте переклад українського свідоцтва про народження румунською разом із нотаріальним засвідченням — *traducere legalizată a certificatului de naștere*. Передайте оригінал свідоцтва для оформлення перекладу.
+1. **Зверніться до <a href={translatorContacts}>авторизованого перекладача</a>.** Замовте переклад українського свідоцтва про народження румунською разом із нотаріальним засвідченням — *traducere legalizată a certificatului de naștere*. Передайте оригінал свідоцтва для оформлення перекладу.
 
 2. **Заберіть оригінал і засвідчений переклад.** Звірте написання імен дитини та батьків із паспортами. Зробіть копію свідоцтва для IGI.
 
 </Steps>
 
-Можна звернутися й безпосередньо до [авторизованого перекладача](https://www.just.ro/html/interpreti-traducatori-rezultate.html). Тоді нотаріальне засвідчення замовте окремо в нотаріуса, надавши переклад та оригінал свідоцтва.
+:::note[Окреме засвідчення]
+Якщо перекладач не організовує нотаріальне засвідчення, замовте його окремо в нотаріуса. Надайте переклад та оригінал свідоцтва.
+:::
 
 :::note[Без апостиля]
 Для українського свідоцтва ДРАЦС діє [двостороннє звільнення від апостиля](https://econsulat.ro/ApostilareSupralegalizare/DescriereServiciu/600000004). Замовляйте переклад із нотаріальним засвідченням.

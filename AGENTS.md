@@ -197,7 +197,9 @@ CSS, `<hr>`, colours or spacing.
   institution `##` automatically, numbered in page order, so keep institutions in the same
   order as the overview steps.
 - **Navigation.** The right-hand menu is built from `##` and `###`. Keep headings short (1-3
-  words) and unique within a section. There are no links between guides.
+  words) and unique within a section. Guides stand alone; when a step needs a service provider,
+  link to the relevant subsection of the site's contact directory at the point of use.
+  Keep provider details in that directory instead of duplicating them across guides.
 - **Asides, by meaning:** `:::note[Лише якщо]` - who needs a step; `:::caution[...]` - a known
   risk; `:::danger[...]` - something that, if missed, breaks the process (e.g. "make a copy
   before you hand over the original"). Title of 1-3 words, body of one or two lines.
