@@ -19,6 +19,7 @@ import { Steps, TabItem, Tabs } from '@astrojs/starlight/components';
 import Summary from '../../../components/Summary.astro';
 import PrintMemo from '../../../components/PrintMemo.astro';
 export const fullExample = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/examples/exchange-driving-licence-form.png`;
+export const translatorContacts = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/guides/useful-contacts/#перекладачі`;
 
 <Summary
 	facts={[
@@ -204,7 +205,7 @@ _За досвідом спільноти, з нещодавно виданим 
 - [ ] **Тимчасовий захист або посвідка на проживання** - з адресою в Румунії.
 - [ ] **Паспорт**
 - [ ] **Українські права** - оригінал.
-- [ ] **Нотаріальний переклад прав румунською** (traducere legalizată) - бюро перекладів + нотаріус, зазвичай 1-2 робочі дні. Потрібен оригінал прав.
+- [ ] **Нотаріальний переклад прав румунською** (traducere legalizată) - <a href={translatorContacts}>авторизований перекладач</a> + нотаріус, зазвичай 1-2 робочі дні. Потрібен оригінал прав.
 - [ ] **Довідка з медкомісії (fișă medicală)** - якщо проходили, не старша за рік.
 - [ ] **Заповнена заява** - див. [Заява](#заява).
 - [ ] **Підтвердження оплати 139 лей** - див. [Оплата](#оплата).

@@ -12,7 +12,9 @@ if (baseIndex !== -1) {
   files = readdirSync(directory).map((name) => directory + name);
 }
 
-const candidates = files.filter((file) => file.startsWith(directory) && /\.(md|mdx)$/.test(file) && file !== `${directory}getting-started.mdx`);
+// Contact-directory provenance is recorded in the PR, not on the public page.
+const exemptPages = new Set(['getting-started.mdx', 'useful-contacts.mdx']);
+const candidates = files.filter((file) => file.startsWith(directory) && /\.(md|mdx)$/.test(file) && !exemptPages.has(file.slice(directory.length)));
 let failed = false;
 for (const file of candidates) {
   const content = readFileSync(file, 'utf8');

@@ -304,7 +304,8 @@ h1#_top,
 }
 
 /* Link card to a full example image (opens in a new tab). */
-.sl-markdown-content a.example-link {
+.sl-markdown-content a.example-link,
+.sl-markdown-content .example-document {
 	display: flex;
 	gap: 1rem;
 	align-items: center;
@@ -331,8 +332,56 @@ h1#_top,
 .sl-markdown-content a.example-link strong {
 	color: var(--sl-color-accent);
 }
+.example-gallery {
+	display: grid;
+	gap: 0.5rem;
+}
+.sl-markdown-content .example-gallery :is(.example-document, .example-grid, a.example-link) {
+	margin: 0;
+}
+.sl-markdown-content .example-document {
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 0.5rem 1rem;
+	max-width: none;
+	padding: 0.5rem 0.75rem;
+}
+.example-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 11.5rem), 1fr));
+	gap: 0.5rem;
+}
+.sl-markdown-content .example-grid a.example-link {
+	max-width: none;
+	min-height: 44px;
+	padding: 0.5rem 0.75rem;
+}
+.example-pages {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.25rem;
+}
+.sl-markdown-content .example-pages a {
+	display: inline-grid;
+	place-items: center;
+	min-width: 44px;
+	min-height: 44px;
+	border: 1px solid var(--sl-color-gray-5);
+	border-radius: 6px;
+	color: var(--sl-color-accent);
+	font-weight: 600;
+}
+.sl-markdown-content .example-pages a:hover {
+	border-color: var(--sl-color-accent);
+}
+.example-gallery a:focus-visible {
+	outline: 2px solid var(--sl-color-accent);
+	outline-offset: 2px;
+}
 @media print {
-	.sl-markdown-content a.example-link {
+	.sl-markdown-content a.example-link,
+	.sl-markdown-content .example-gallery {
 		display: none;
 	}
 }
