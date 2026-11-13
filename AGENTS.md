@@ -180,6 +180,14 @@ Other rules:
 - Frontmatter has `title` (what the guide helps do) and `description` (one sentence for search
   results and the catalogue). Add new guides to the matching topic in
   `src/components/HomeCatalog.astro`.
+- **Social preview.** Every new content page, including reference and contact pages, needs
+  a topic-specific cover in `socialImage: { src, alt }`. Create or source an appropriate
+  image in the site's visual style; the shared fallback is not a finished page's cover.
+  Save the asset under `src/assets/<page-name>/social-card.jpg`, preferably 1200 × 630.
+  Keep the subject and any Ukrainian text legible at small preview size and away from edges.
+  Use no private data or realistic personal documents. After building, check that `og:image`
+  and `twitter:image` point to the intended accessible image using absolute URLs, and inspect
+  the actual image for cropping, text errors and relevance to the page.
 - Use the optional `contributors` list in frontmatter to show «Подяки» alongside the table of
   contents on wide screens or below the guide on narrow screens.
   Use names or aliases intended for publication, or `Анонімні учасники` for anonymous contributors.
