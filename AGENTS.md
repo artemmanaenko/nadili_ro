@@ -23,14 +23,16 @@ publish private personal data from submissions.
    instead of creating a second one.
 2. When updating, change only what the new material affects. Do not restructure or rewrite a
    guide unless the contributor asks for it.
-3. Write or edit the guide by the rules below.
+3. Read `src/content/docs/guides/exchange-driving-licence.mdx` before drafting. Follow its
+   action → practical details → checklist pattern, then write by the rules below.
 4. Run `pnpm install` (once) and `pnpm build`; the build must pass.
 5. Open a pull request: one line on what changed, plus where the material came from.
 
 For all contributions, follow `CONTRIBUTING.md` and identify the source in the pull request.
 
-Ask the contributor only when the material is too thin to write `Кроки` and at least one
-`Чек-ліст`. Otherwise write what the material supports and leave the rest out.
+Ask the contributor only when a missing fact blocks an executable route and cannot be resolved
+from reliable sources. Having `Кроки` and a `Чек-ліст` is not enough. Omit optional unknowns;
+identify an unresolved prerequisite explicitly instead of presenting the route as complete.
 
 ## Language
 
@@ -53,12 +55,44 @@ real experience.
 - No AI-style templates: no "it's not X, it's Y", no "three key takeaways", no moral or
   summary paragraph at the end.
 - Assume the reader is on a phone and skimming.
-- Minimum text. Each line says what to do, or for whom it applies. If a sentence does
-  neither, delete it. Long explanations belong in the institution's section, not in the
-  overview steps.
+- Minimum text that lets a newcomer act. Keep details that explain what to do, who needs it,
+  how to choose, or what result to expect. Remove background, not necessary instructions.
+  Long explanations belong in the institution's section, not in the overview steps.
 - Conditions ("only if", "who this applies to") and risks go into a Starlight aside, not into
   a sentence (see Page design).
-- Do not repeat a fact in several places on the page. State it once where it is acted on.
+- Keep each explanation where it is acted on; link to it instead of repeating it. The summary,
+  overview, checklist and print memo may repeat the short facts needed to work independently.
+
+## Reader's route
+
+Write for someone doing this for the first time, without knowing Romanian institutions or terms.
+
+- **Entry point.** The title, summary and overview must make the task, any eligibility gate,
+  first action and final result clear. Explain an unfamiliar subject in one short phrase;
+  spelling out a Romanian acronym alone does not explain it.
+- **Overview.** Show the route in order, with an action and its purpose or result. Put the
+  execution details in the linked section. Avoid steps such as “Перевірте підставу” or
+  “Підготовка” without saying what the reader actually checks or prepares.
+- **Execution.** In each detailed procedure, name where to go or click, what to bring or
+  select, and what to receive or save. Include only the details needed for that action.
+  “Зарезервуйте назву” needs a route to the service and the resulting confirmation;
+  “Виберіть коди” needs a source for the codes and a way to choose the applicable ones.
+- **Documents.** Explain where to get unfamiliar documents before the checklist. Link the
+  actual blank or service at the point of use; a source list at the bottom is not navigation.
+  Start checklist items with a Ukrainian name and retain the official Romanian label.
+- **Choices.** Keep one readable route. Explain meaningful choices where they arise, with
+  a criterion for choosing; use tabs for alternative submission or payment procedures.
+  Do not bury prerequisites such as an electronic signature in a list of channels.
+- **Uncertainty.** Put a blocking eligibility condition before the affected action. State
+  the practical consequence first; keep legal reasoning out of the overview. If the reader
+  must ask an institution, give the contact route, the specific question and what answer
+  allows the next step. Do not turn an editorial precaution into a required document.
+- **Scope.** End at the result promised by the title. Distinguish submitting an application
+  from receiving the result. Do not imply that registration also covers later obligations.
+
+Use only sourced details. These rules require researching gaps, not inventing clicks, accepted
+documents or guaranteed outcomes. The reference guide demonstrates the writing pattern;
+its topic-specific facts and occasional exceptions are not rules for other guides.
 
 ## Facts
 
@@ -90,13 +124,15 @@ Skip a section only when it has nothing in it.
    </Summary>
    ```
 
-   `facts` holds 2-3 short label/value pairs (duration, cost). No "where to go": the steps
-   cover that.
+   `facts` normally holds 2-3 useful short label/value pairs (duration, cost). Use fewer or
+   `facts={[]}` when these are unknown; never fill the card with an acronym expansion or a
+   generic instruction just to reach a count. No "where to go": the steps cover that.
 2. **`## Кроки`** - a short overview in the Starlight `<Steps>` component: one step per
    institution or stage, each linking to its section. Each step starts with a bold action or
    the institution name, then one or two sentences.
-3. **One `##` section per institution** (`## Медкомісія`, `## DRPCIV (МРЕО)`,
-   `## Посольство України`), in the order the reader visits them. Everything about that place
+3. **One `##` section per institution or actionable stage** (`## Медкомісія`, `## DRPCIV (МРЕО)`,
+   `## Посольство України`), in route order. Do not create a separate “Підготовка” section
+   just to hold background or legal analysis. Everything about that place
    lives in its section, including payment for it. Inside:
    - Put `### Чек-ліст` at the end of the section, after all explanations and procedures: everything
      to have in hand when you go there, as a Markdown task
@@ -135,7 +171,7 @@ Other rules:
 The theme does the layout; write plain Markdown and the components below. Do not add your own
 CSS, `<hr>`, colours or spacing.
 
-- **Headings.** `##` only for `Кроки`, one per institution, and `Джерела`. `###` for parts of
+- **Headings.** `##` only for `Кроки`, one per institution or actionable stage, and `Джерела`. `###` for parts of
   an institution. No `####`. Spell `Кроки`, `Чек-ліст` and `Джерела` exactly so: the theme
   finds them by name (print buttons, section numbers, hiding sources in print). `## Кроки` is
   the first `##`, `## Джерела` the last, and the task list comes right after
@@ -155,8 +191,8 @@ CSS, `<hr>`, colours or spacing.
   everyone ticks, dashed = depends), not as prose. A full filled example goes to
   `public/examples/` with personal data replaced (`DOE John`, zeros) and is linked with the
   `example-link` card.
-- **Reference guide:** `src/content/docs/guides/exchange-driving-licence.mdx` uses every
-  pattern above; copy markup from it.
+- **Reference guide:** `src/content/docs/guides/exchange-driving-licence.mdx`. Follow how it
+  makes actions executable (booking option, form, payment confirmation), not just its markup.
 - **Romanian terms** on the page as the reader will see them on site or on paper: `Grupa 1`,
   `Preschimbare permis străin`, `Dovada`.
 - **Addresses** of offices link to Google Maps
@@ -171,6 +207,11 @@ CSS, `<hr>`, colours or spacing.
 3. The print memo fits 1-2 A4 pages and covers every option shown in tabs.
 4. Every changing fact has a source in `## Джерела`.
 5. No personal data from the source material is left.
+6. Read as a newcomer: from the title, summary and `Кроки`, can you tell what this achieves,
+   whether a prerequisite blocks you, and what to do first? Then walk through each section:
+   can you find the service, obtain the documents, make each choice and recognize completion
+   without searching for an explanation the guide should provide? Fix gaps before calling
+   the guide ready; a passing build and the required headings do not prove usability.
 
 ## Development
 

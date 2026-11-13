@@ -8,7 +8,7 @@ Agents handle the repository work for content contributions.
 
 1. Give your agent the material and point it to [AGENTS.md](AGENTS.md). The agent writes or updates the page, runs the checks below, and opens a pull request (PR).
 2. Have another agent review the PR against the repository rules and cited sources. The authoring agent addresses its findings.
-3. A human checks that the page is clear in the site preview and that its claims reflect current practice and are backed by the sources.
+3. A human follows the guide as a newcomer in the site preview: the first action, document sources, choices and final result must be clear (see “Reader's route” in [AGENTS.md](AGENTS.md)). Check that its claims reflect current practice and are backed by the sources.
 
 ## Content
 
