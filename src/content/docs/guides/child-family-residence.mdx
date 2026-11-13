@@ -4,7 +4,7 @@ description: Як подати в Румунії без візи D/VF на пе�
 collectedOn: "2026-11-13"
 ---
 
-import { Steps } from '@astrojs/starlight/components';
+import { Steps, TabItem, Tabs } from '@astrojs/starlight/components';
 import Summary from '../../../components/Summary.astro';
 import PrintMemo from '../../../components/PrintMemo.astro';
 
@@ -20,7 +20,7 @@ export const examples = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/examples
 
 <Steps>
 
-1. **[Зберіть документи](#документи).** Підготуйте переклад свідоцтва про народження, декларацію батьків, документи на житло, дохід і здоров’я дитини. Сплатіть два збори.
+1. **[Зберіть документи](#документи).** Підготуйте переклад свідоцтва про народження, декларацію батьків, документи на житло, дохід і здоров’я дитини. [Сплатіть два збори](#оплата).
 
 2. **[Подайте заяву в IGI](#подача-в-igi).** У своєму акаунті Portal IGI створіть профіль дитини. Оберіть продовження права проживання за сімейною підставою, запишіться і прийдіть з дитиною та оригіналами.
 
@@ -71,7 +71,46 @@ export const examples = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/examples
 
 ### Оплата
 
-У касі CEC Bank сплатіть **265 леїв за картку** (*contravaloarea permisului de ședere*) і **120 євро в леях за розгляд заяви** (*taxa de prelungire a dreptului de ședere*). Для другого платежу каса перерахує суму в леї за курсом дня. Візьміть паспорт дитини: для збору за розгляд заяви потрібен його номер. Оформіть платежі на ім’я дитини та збережіть обидві квитанції.
+**265 леїв за картку** (*contravaloarea permisului de ședere*).
+
+<Tabs>
+<TabItem label="Каса CEC Bank">
+
+Покажіть паспорт дитини й попросіть оформити платіж *contravaloarea permisului de ședere* на її ім’я. Візьміть квитанцію.
+
+</TabItem>
+<TabItem label="Термінал SelfPay">
+
+Знайдіть [термінал SelfPay](https://www.selfpay.ro/localizare/) та виберіть платіж за картку посвідки (*contravaloarea permisului de ședere*). IGI вказує для цього платежу рахунок `RO05CECEB30033RON2244514`. Збережіть квитанцію. Якщо такого платежу в меню немає, скористайтеся касою CEC Bank.
+
+</TabItem>
+</Tabs>
+
+**120 євро в леях за право проживання** (*taxa de prelungire a dreptului de ședere*, в інструкції IGI також *taxa consulară*). Суму рахуйте за [курсом EUR Національного банку Румунії (BNR)](https://www.bnr.ro/) на день оплати.
+
+<Tabs>
+<TabItem label="Банківський переказ">
+
+Переказуйте в леях із власного рахунку в банку в Румунії. Для онлайн-оплати IGI дає один рахунок для всієї країни.
+
+- **Отримувач** — Inspectoratul General pentru Imigrări.
+- **IBAN** — `RO70TREZ70020340101XXXXX`. Літери `XXXXX` є частиною рахунку.
+- **CIF отримувача** — `22084517`.
+- **Призначення** (*Mențiuni / Explicații*) — номер закордонного паспорта дитини. Якщо поле дозволяє, додайте її ім’я та прізвище і *Taxă prelungire drept de ședere*.
+
+Збережіть підтвердження виконаного переказу.
+
+</TabItem>
+<TabItem label="Каса казначейства">
+
+Знайдіть [казначейство (Trezoreria Statului) в адміністративному центрі свого жудця або у своєму секторі Бухареста](https://static.anaf.ro/static/10/Anaf/AsistentaContribuabili_r/Trezorerii.htm). Візьміть паспорт дитини й попросіть сплатити готівкою *taxa de prelungire a dreptului de ședere*. Для каси діє місцевий рахунок, його реквізити є у відділенні. Перевірте, що на квитанції є номер паспорта дитини, і збережіть її.
+
+</TabItem>
+</Tabs>
+
+:::note[Збір у CEC]
+IGI також перелічує CEC для готівкової оплати збору в 120 євро. Якщо хочете сплатити його там, спершу запитайте, чи приймає ця каса саме *taxa de prelungire a dreptului de ședere*. Переказ і каса казначейства доступні окремо.
+:::
 
 ## Подача в IGI
 
@@ -116,7 +155,7 @@ export const examples = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/examples
 - [ ] **Підтвердження коштів на утримання** - *dovada mijloacelor de întreținere*.
 - [ ] **Підтвердження страхування дитини** - *adeverință de asigurat* або поліс для першої посвідки.
 - [ ] **Медична довідка дитини** - *adeverință medicală*.
-- [ ] **Дві квитанції** - за картку та за розгляд заяви.
+- [ ] **Два підтвердження оплати** - за картку та за право проживання, див. [Оплата](#оплата).
 - [ ] **Підтвердження запису** - з порталу або пошти.
 
 ## Отримання посвідки
@@ -145,7 +184,8 @@ export const examples = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/examples
 - [ ] Довідка про зарплату спонсора, банківська виписка або інше підтвердження коштів.
 - [ ] Довідка про страхування дитини від CAS або поліс для першої посвідки.
 - [ ] Медична довідка дитини для IGI.
-- [ ] Квитанції CEC Bank: 265 леїв за картку і 120 євро в леях за розгляд заяви. Для другого платежу вкажіть номер паспорта дитини.
+- [ ] 265 леїв за картку (*contravaloarea permisului de ședere*): каса CEC Bank або термінал SelfPay, рахунок RO05CECEB30033RON2244514.
+- [ ] 120 євро за право проживання (*taxa de prelungire a dreptului de ședere*): у леях за курсом BNR на день оплати. Переказ з румунського рахунку: Inspectoratul General pentru Imigrări, IBAN RO70TREZ70020340101XXXXX, CIF 22084517. Готівкою: каса казначейства за місцевими реквізитами або каса CEC, якщо вона приймає цей збір. Указати номер паспорта дитини. Зберегти обидва підтвердження.
 
 </div>
 
@@ -183,8 +223,10 @@ export const examples = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/examples
 - [IGI — погодження возз’єднання для візи D/VF](https://igi.mai.gov.ro/aprobarea-reintregirii-familiei-cu-cetateni-terti/)
 - [IGI — підтвердження страхування для першої посвідки](https://igi.mai.gov.ro/wp-content/uploads/2021/10/dovada-asigurarii-sociale-prima-prelungire.pdf)
 - [IGI — збори за посвідку](https://igi.mai.gov.ro/wp-content/uploads/2025/08/Taxe.pdf)
-- [МВС Румунії — сума в леях і способи оплати](https://hub.mai.gov.ro/serviciu/view?id=31)
-- [IGI — дані для платежу за розгляд заяви](https://igi.mai.gov.ro/simplificarea-procedurii-de-verificare-a-platii-taxelor-pentru-serviciile-oferite-de-inspectoratul-general-pentru-imigrari/)
+- [IGI — оплата картки через CEC Bank і SelfPay](https://igi.mai.gov.ro/noi-modalitati-privind-plata-taxelor-pentru-straini-2/)
+- [IGI — реквізити казначейства й призначення платежу за право проживання](https://igi.mai.gov.ro/simplificarea-procedurii-de-verificare-a-platii-taxelor-pentru-serviciile-oferite-de-inspectoratul-general-pentru-imigrari/)
+- [МВС Румунії — тарифи й перерахунок за курсом дня](https://hub.mai.gov.ro/serviciu/view?id=31)
+- [OG 24/1992 — тарифи та курс BNR, ст. 2 і додаток](https://legislatie.just.ro/Public/DetaliiDocument/158560)
 - [eConsulat — звільнення українських документів від апостиля](https://econsulat.ro/ApostilareSupralegalizare/DescriereServiciu/600000004)
 - [Договір між Румунією та Україною про правову допомогу, стаття 13](https://legislatie.just.ro/Public/DetaliiDocumentAfis/59642)
 - [Обговорення в Telegram: досвід подачі без візи D/VF](https://t.me/romaniaitcommunity/11/1075391)
