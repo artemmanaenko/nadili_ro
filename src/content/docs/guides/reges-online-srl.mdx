@@ -1,0 +1,181 @@
+---
+title: Доступ до REGES-ONLINE для SRL
+description: Як законному представнику SRL увійти з кваліфікованим електронним підписом, відкрити реєстр трудових договорів компанії та надати доступ бухгалтерії.
+collectedOn: "2026-11-14"
+socialImage:
+  src: ../../../assets/reges-online-srl/social-card.jpg
+  alt: "Доступ до REGES-ONLINE для SRL"
+---
+
+import { Steps, TabItem, Tabs } from '@astrojs/starlight/components';
+import Summary from '../../../components/Summary.astro';
+import PrintMemo from '../../../components/PrintMemo.astro';
+
+<Summary facts={[]}>
+	<Fragment slot="highlight">
+		REGES-ONLINE — реєстр трудових договорів. Щоб відкрити реєстр своєї SRL (аналог ТОВ) за цією інструкцією, потрібні румунський персональний код (CNP), кваліфікований електронний підпис із цим CNP і статус законного представника компанії в торговому реєстрі (ONRC).
+	</Fragment>
+</Summary>
+
+## Кроки
+
+<Steps>
+
+1. **[Отримайте підтвердження підпису](#підтвердження-підпису).**
+2. **[Активуйте особистий акаунт](#особистий-акаунт).**
+3. **[Відкрийте реєстр своєї SRL](#реєстр-srl).**
+4. **[Надайте доступ бухгалтерії](#доступ-бухгалтерії)**, якщо вона веде реєстр за договором.
+
+</Steps>
+
+## Підтвердження підпису
+
+:::caution[Звірте CNP]
+Використовуйте однакові ім’я та CNP у сертифікаті підпису, підтвердженні й акаунті REGES. Якщо сертифікат має лише ідентифікатор на основі номера паспорта, для активації потрібен сертифікат із румунським CNP.
+:::
+
+<Tabs>
+<TabItem label="certSIGN">
+
+<Steps>
+
+1. **Завантажте свій бланк.** Підключіть токен або запустіть Paperless vToken. Увійдіть із сертифікатом у [сервіс підтвердження certSIGN](https://confirmare.certsign.ro/). Виберіть **Descărcare document precompletat** і залиште сторінку відкритою.
+2. **Підпишіть PDF.** Відкрийте його в Adobe Reader і підпишіть у полі **Semnătură utilizator**.
+3. **Отримайте другий підпис.** Поверніться до сервісу й завантажте PDF через **Încărcare document**. Збережіть файл з обома підписами через **Descărcare document procesat**.
+
+</Steps>
+
+</TabItem>
+<TabItem label="Інший видавець">
+
+<Steps>
+
+1. **Завантажте [бланк підтвердження (document de confirmare)](https://static.anaf.ro/static/10/Anaf/formulare/confirmare_2021_290621.pdf)** від ANAF (податкової служби).
+2. **Заповніть і підпишіть бланк.** Вкажіть ім’я, прізвище, CNP та електронну пошту. Підпишіть PDF кваліфікованим електронним підписом у полі **Semnătură utilizator**.
+3. **Отримайте другий підпис.** Передайте PDF на підпис видавцю сертифіката. Збережіть повернутий файл з обома підписами.
+
+</Steps>
+
+</TabItem>
+</Tabs>
+
+### Чек-ліст
+
+- [ ] **Румунський персональний код (CNP)**
+- [ ] **Кваліфікований електронний підпис** - сертифікат із вашим CNP.
+
+## Особистий акаунт
+
+<Steps>
+
+1. **Створіть акаунт.** Відкрийте [REGES-ONLINE](https://reges.inspectiamuncii.ro/), оберіть **Registrul pentru angajatori → Clic aici pentru cont nou**. Заповніть форму й підтвердьте електронну пошту за посиланням із листа. Якщо акаунт з вашим CNP уже є, увійдіть у нього.
+2. **Активуйте акаунт підписом.** Оберіть **Activare cu semnătura digitală** та введіть CNP, прізвище й ім’я ([зразок форми активації](https://reges.inspectiamuncii.ro/Media/ew1dfaya/poza-3.png)). Натисніть **Încarcă document**, додайте PDF з обома підписами, підтвердьте декларацію й натисніть **Trimite solicitare**. Після підтвердження активації відкрийте застосунок роботодавця.
+
+</Steps>
+
+### Чек-ліст
+
+- [ ] **Підтвердження підпису** (*document de confirmare*) - PDF з обома підписами.
+- [ ] **Доступ до електронної пошти** - для підтвердження нового акаунта.
+
+## Реєстр SRL
+
+<Steps>
+
+1. **Відкрийте заявку.** У застосунку роботодавця оберіть [**Registre → Cerere acces**](https://reges.inspectiamuncii.ro/ajutor/ghid-utilizare-aplicatie-angajator/registre-cerere-acces/).
+2. **Вкажіть роль і компанію.** У **Calitate subsemnat** оберіть **Reprezentant legal**. У **Tip identificare societate** оберіть **CUI/CIF** і введіть код SRL зі свідоцтва про реєстрацію. Підтвердьте декларацію, перегляньте **Sumar** і натисніть **Transmite**.
+3. **Перевірте доступ.** REGES звіряє представника з даними ONRC. Відкрийте **Registre → Angajatori**. Коли реєстр компанії там доступний для вибору, оберіть свою SRL.
+
+</Steps>
+
+### Помилка ONRC/ANAF
+
+Якщо заявка відхилена з повідомленням **Eroare ONRC/ANAF fără rezultat**, звірте свій CNP, код і назву SRL. [REGES радить подати заявку повторно](https://reges.inspectiamuncii.ro/ajutor/intrebari-frecvente/) з документами, що підтверджують ваше право представляти SRL. Які документи підійдуть, залежить від розбіжності в даних. Ліміт — 10 МБ на файл.
+
+Якщо помилка повторюється, напишіть на [regesonlinesuport.angajator@inspectiamuncii.ro](mailto:regesonlinesuport.angajator@inspectiamuncii.ro). Вкажіть CNP, CUI, дії перед помилкою, тип і розмір файлів, браузер, операційну систему й чи користуєтеся VPN. Попросіть вказати, яких даних або документів бракує для підтвердження доступу. Після виправлення перевірте, чи відкривається реєстр у **Angajatori**.
+
+### Чек-ліст
+
+- [ ] **Активований акаунт REGES-ONLINE**
+- [ ] **Ідентифікаційний код SRL (CUI/CIF)** - зі свідоцтва про реєстрацію (*certificat de înregistrare*).
+
+## Доступ бухгалтерії
+
+Якщо зовнішня бухгалтерська компанія веде реєстр за договором, попросіть у неї CUI/CIF. Узгодьте з нею, з якої дати потрібен доступ за чинним договором.
+
+<Steps>
+
+1. **Відкрийте делегування.** Оберіть реєстр своєї SRL, потім [**Registre → Delegare**](https://reges.inspectiamuncii.ro/ajutor/ghid-utilizare-aplicatie-angajator/registre-delegare/).
+2. **Вкажіть виконавця.** Оберіть роль **Reprezentant legal** і вкажіть код своєї SRL. У **Tip delegat** оберіть **Prestator**. Введіть CUI/CIF бухгалтерської компанії, дату початку та, якщо встановлено, дату завершення. Підтвердьте декларацію про договір.
+3. **Надішліть і перевірте.** Перегляньте **Sumar**, натисніть **Transmite** й перевірте отримувача та період у [**Registre → Delegați**](https://reges.inspectiamuncii.ro/ajutor/ghid-utilizare-aplicatie-angajator/registre-delegati/).
+
+</Steps>
+
+### Чек-ліст
+
+- [ ] **Доступ до реєстру SRL**
+- [ ] **Договір із бухгалтерською компанією** - має передбачати ведення реєстру.
+- [ ] **Код бухгалтерської компанії (CUI/CIF)**
+
+<PrintMemo>
+
+<div class="memo-step">
+
+**1. Отримайте підтвердження підпису**
+
+- [ ] Румунський CNP
+- [ ] Кваліфікований підпис із цим CNP
+
+Для іншого видавця заповніть *document de confirmare* від ANAF: ім’я, прізвище, CNP та електронна пошта. Підпишіть PDF у полі Semnătură utilizator і отримайте другий підпис від видавця сертифіката.
+
+Для certSIGN відкрийте confirmare.certsign.ro. Виберіть Descărcare document precompletat. Підпишіть у полі Semnătură utilizator. Завантажте через Încărcare document і збережіть файл через Descărcare document procesat.
+
+</div>
+
+<div class="memo-step">
+
+**2. Активуйте особистий акаунт**
+
+- [ ] PDF підтвердження з обома підписами
+- [ ] Доступ до електронної пошти
+
+У REGES-ONLINE відкрийте Registrul pentru angajatori → Clic aici pentru cont nou. Підтвердьте пошту. Якщо акаунт уже є, увійдіть у нього. Оберіть Activare cu semnătura digitală, заповніть CNP, Nume, Prenume, завантажте PDF і натисніть Trimite solicitare.
+
+</div>
+
+<div class="memo-step">
+
+**3. Відкрийте реєстр SRL**
+
+- [ ] Активований акаунт REGES-ONLINE
+- [ ] Код SRL (CUI/CIF)
+
+Registre → Cerere acces → Reprezentant legal → CUI/CIF. Заповніть код SRL, підтвердьте декларацію, перегляньте Sumar → Transmite. Перевірте, що реєстр SRL можна вибрати в Registre → Angajatori. Якщо заявку відхилено з Eroare ONRC/ANAF fără rezultat, звірте CNP, код і назву SRL та подайте заявку з підтвердними документами (до 10 МБ кожен).
+
+</div>
+
+<div class="memo-step">
+
+**4. Надайте доступ бухгалтерії, якщо вона веде реєстр**
+
+- [ ] Доступ до реєстру SRL
+- [ ] Договір про ведення реєстру
+- [ ] CUI/CIF бухгалтерської компанії
+
+Оберіть свою SRL. Registre → Delegare → Reprezentant legal → Prestator. Вкажіть коди SRL і виконавця, період делегування, підтвердьте декларацію. Sumar → Transmite. Перевірте доступ у Registre → Delegați.
+
+</div>
+
+</PrintMemo>
+
+## Джерела
+
+- [ANAF: бланк підтвердження підпису](https://static.anaf.ro/static/10/Anaf/formulare/confirmare_2021_290621.pdf)
+
+- [Inspecția Muncii: активація акаунта й авторизація роботодавця](https://reges.inspectiamuncii.ro/ajutor/cum-accesez-angajator/)
+- [REGES-ONLINE: вимога румунського CNP](https://reges.inspectiamuncii.ro/ajutor/intrebari-frecvente?faqid=366064)
+- [certSIGN: документ підтвердження й активація підпису](https://help.certsign.ro/ro/article/activarea-reinnoirea-certificatului-la-reges-si-obtinerea-documentului-de-confirmare-1jhmm36/)
+- [REGES-ONLINE: запит доступу до реєстру компанії](https://reges.inspectiamuncii.ro/ajutor/ghid-utilizare-aplicatie-angajator/registre-cerere-acces/)
+- [REGES-ONLINE: поширені запитання, зокрема помилка ONRC/ANAF](https://reges.inspectiamuncii.ro/ajutor/intrebari-frecvente/)
+- [REGES-ONLINE: делегування доступу](https://reges.inspectiamuncii.ro/ajutor/ghid-utilizare-aplicatie-angajator/registre-delegare/)
+- [REGES-ONLINE: список делегованих доступів](https://reges.inspectiamuncii.ro/ajutor/ghid-utilizare-aplicatie-angajator/registre-delegati/)
