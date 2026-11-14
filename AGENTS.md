@@ -36,7 +36,15 @@ Ask the contributor only when a missing fact blocks the route after the source r
 
 ## Reader's route
 
-Write for someone doing this for the first time, without knowing Romanian institutions or terms.
+Write for someone doing this for the first time, without knowing Romanian institutions or terms,
+and without a budget for paid intermediaries. The author researches the procedure; the reader
+performs concrete actions. Make the main route independently executable.
+
+For company-specific choices, account for an existing accountant where relevant: say what to
+send them and what concrete result to request (for example, the applicable codes and their
+Romanian names). Do not assume everyone has an accountant or require hiring one to compensate
+for missing research. Give sourced selection criteria for the independent route; never invent
+a universal answer for cases that differ.
 
 - **Entry point.** Keep the title short enough to scan in the catalogue. Name the task in
   familiar Ukrainian and add a brief qualifier only when it distinguishes this guide from
@@ -68,10 +76,23 @@ Write for someone doing this for the first time, without knowing Romanian instit
   and the exact option to select when verified. Use tabs for alternative submission or payment
   procedures. Put prerequisites before the actions that need them.
 - **Uncertainty.** Put a blocking eligibility condition before the affected action. State
-  the practical consequence first. Omit optional unknowns. When a case-specific question still
-  blocks an action after research, mark that step as conditional. Give the contact route,
-  the exact question and what answer allows the reader to continue. Do not turn an editorial
-  precaution into a required document.
+  the practical consequence first; keep legal reasoning out of the overview. “Call and ask”,
+  “check with the institution” or “consult a specialist” does not close a research gap and
+  is not a completed procedural step. Omit optional unknowns. Return unresolved procedural questions to the author
+  before publication. Contacting an institution belongs in the route only when evidence
+  establishes a genuine case-specific determination or required interaction: explain who
+  needs it, the contact route, what to send or ask and what result allows the next step.
+  Do not impose an exceptional consultation on every reader or turn an editorial precaution
+  into a required document.
+- **Local practice.** Romanian offices may apply procedures differently across counties
+  (județe). When sources or sufficiently specific first-hand cases demonstrate a difference,
+  state it beside the affected action; do not generalize one county's experience to Romania.
+  Use a compact comparison table when useful: county/office, observed practice, practical
+  consequence, source/date (at most four columns). Distinguish official requirements from
+  observed practice, retain case dates and uncertainty, and follow the usual source rules.
+  Do not infer a county-wide rule from a single refusal or create speculative differences.
+  Show unknown counties as unknown only when needed; do not fill gaps with guesses or make
+  every reader call their office. Investigate unresolved differences that block the route.
 - **Scope.** End at the result promised by the title. Distinguish submitting an application
   from receiving the result. Do not imply that registration also covers later obligations.
 
@@ -194,7 +215,10 @@ CSS, `<hr>`, colours or spacing.
   everyone ticks, dashed = depends), not as prose. A full filled example goes to
   `public/examples/` with personal data replaced (`DOE John`, zeros) and is linked with the
   `example-link` card.
-- **Scans and screenshots.** Crop inline illustrations to the fields being explained. If a
+- **Scans and screenshots.** Retain useful source images beside the relevant actions. Crop
+  only irrelevant content; preserve screen titles, neighboring fields, selections, buttons
+  and other context needed to reproduce the action. Compare the edited image with its original.
+  A detail crop supplements a wider sanitized view when that context is needed. If a
   filled document is useful as an example, link the complete anonymized image, including
   every page of the example. Permanently remove private data and replace it with fictional
   values where useful. Mask only the individual sensitive values, keeping surrounding text,
@@ -226,6 +250,21 @@ CSS, `<hr>`, colours or spacing.
 
 ## Development
 
+- Start chat-owned Astro servers from the coordinator (not a short-lived child agent) with
+  `python3 scripts/local-preview.py start --mode preview --port <free-port>` after building;
+  use `--mode dev` for development. Project `PostToolUse` hooks bind the launch token to the
+  chat; run `python3 scripts/local-preview.py status` in the next tool call to confirm a
+  non-null owner and verify the actual page URL. If ownership is missing, report that automatic
+  cleanup is not armed; do not claim the hook works or manually assign another chat's ID.
+  Project `SessionEnd` hooks terminate only registered servers belonging to that session.
+  Do not share a registered server across chats. Existing unregistered servers are untouched.
+- When starting a local server, retain its execution session or PID/start time, command,
+  working directory and port in the chat. On completion of local page review, explicit
+  acceptance followed by moving on, or a transition to PR-only work, apply
+  [.agents/skills/nadili-local-doctor/SKILL.md](.agents/skills/nadili-local-doctor/SKILL.md)
+  to assess and retire this task's unneeded servers. Also use it for duplicate or lingering
+  server checks. Keep previews needed for user review; a PR or the end of an agent turn
+  alone does not authorize cleanup. Never stop another task's server by guessing ownership.
 - `pnpm dev` runs a local server; search works only after `pnpm build && pnpm preview`.
 - Site configuration: `astro.config.mjs`. Theme: `src/styles/theme.css`.
 - Decisions are recorded in `docs/adr/`.

@@ -2,6 +2,8 @@
 dist/
 # generated types
 .astro/
+.nadili-local/
+scripts/__pycache__/
 
 # dependencies
 node_modules/
