@@ -40,6 +40,9 @@ import PrintMemo from '../../../components/PrintMemo.astro';
 <Steps>
 
 1. **Завантажте свій бланк.** Підключіть токен або запустіть Paperless vToken. Увійдіть із сертифікатом у [сервіс підтвердження certSIGN](https://confirmare.certsign.ro/). Виберіть **Descărcare document precompletat** і залиште сторінку відкритою.
+
+   ![Вхід у сервіс підтвердження certSIGN з токеном або хмарним сертифікатом](../../../assets/reges-online-srl/certsign-auth.png)
+
 2. **Підпишіть PDF.** Відкрийте його в Adobe Reader і підпишіть у полі **Semnătură utilizator**.
 3. **Отримайте другий підпис.** Поверніться до сервісу й завантажте PDF через **Încărcare document**. Збережіть файл з обома підписами через **Descărcare document procesat**.
 
@@ -69,7 +72,14 @@ import PrintMemo from '../../../components/PrintMemo.astro';
 <Steps>
 
 1. **Створіть акаунт.** Відкрийте [REGES-ONLINE](https://reges.inspectiamuncii.ro/), оберіть **Registrul pentru angajatori → Clic aici pentru cont nou**. Заповніть форму й підтвердьте електронну пошту за посиланням із листа. Якщо акаунт з вашим CNP уже є, увійдіть у нього.
-2. **Активуйте акаунт підписом.** Оберіть **Activare cu semnătura digitală** та введіть CNP, прізвище й ім’я ([зразок форми активації](https://reges.inspectiamuncii.ro/Media/ew1dfaya/poza-3.png)). Натисніть **Încarcă document**, додайте PDF з обома підписами, підтвердьте декларацію й натисніть **Trimite solicitare**. Після підтвердження активації відкрийте застосунок роботодавця.
+
+   ![Схема картки реєстру для роботодавців](../../../assets/reges-online-srl/employer-entry.png)
+
+   ![Посилання для створення акаунта під формою входу](../../../assets/reges-online-srl/new-account-link.png)
+
+2. **Активуйте акаунт підписом.** Оберіть **Activare cu semnătura digitală** та введіть CNP, прізвище й ім’я. Натисніть **Încarcă document**, додайте PDF з обома підписами, підтвердьте декларацію й натисніть **Trimite solicitare**. Після підтвердження активації відкрийте застосунок роботодавця.
+
+   ![Зразок форми активації з умовними даними, кнопками завантаження PDF і подання](../../../assets/reges-online-srl/activate-account.png)
 
 </Steps>
 
@@ -83,8 +93,16 @@ import PrintMemo from '../../../components/PrintMemo.astro';
 <Steps>
 
 1. **Відкрийте заявку.** У застосунку роботодавця оберіть [**Registre → Cerere acces**](https://reges.inspectiamuncii.ro/ajutor/ghid-utilizare-aplicatie-angajator/registre-cerere-acces/).
+
+   ![Меню Registre з пунктами Cerere acces, Angajatori, Delegare та Delegați](../../../assets/reges-online-srl/register-menu.png)
+
 2. **Вкажіть роль і компанію.** У **Calitate subsemnat** оберіть **Reprezentant legal**. У **Tip identificare societate** оберіть **CUI/CIF** і введіть код SRL зі свідоцтва про реєстрацію. Підтвердьте декларацію, перегляньте **Sumar** і натисніть **Transmite**.
+
+   ![Схема заявки з роллю Reprezentant legal і полем для CUI або CIF](../../../assets/reges-online-srl/request-access.png)
+
 3. **Перевірте доступ.** REGES звіряє представника з даними ONRC. Відкрийте **Registre → Angajatori**. Коли реєстр компанії там доступний для вибору, оберіть свою SRL.
+
+   ![Знеособлений приклад повідомлення REGES про схвалення доступу](../../../assets/reges-online-srl/register-approved.png)
 
 </Steps>
 
@@ -108,6 +126,8 @@ import PrintMemo from '../../../components/PrintMemo.astro';
 1. **Відкрийте делегування.** Оберіть реєстр своєї SRL, потім [**Registre → Delegare**](https://reges.inspectiamuncii.ro/ajutor/ghid-utilizare-aplicatie-angajator/registre-delegare/).
 2. **Вкажіть виконавця.** Оберіть роль **Reprezentant legal** і вкажіть код своєї SRL. У **Tip delegat** оберіть **Prestator**. Введіть CUI/CIF бухгалтерської компанії, дату початку та, якщо встановлено, дату завершення. Підтвердьте декларацію про договір.
 3. **Надішліть і перевірте.** Перегляньте **Sumar**, натисніть **Transmite** й перевірте отримувача та період у [**Registre → Delegați**](https://reges.inspectiamuncii.ro/ajutor/ghid-utilizare-aplicatie-angajator/registre-delegati/).
+
+   ![Знеособлений приклад повідомлення REGES про доступ бухгалтерської компанії](../../../assets/reges-online-srl/delegation-approved.png)
 
 </Steps>
 
