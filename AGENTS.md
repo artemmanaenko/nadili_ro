@@ -87,8 +87,8 @@ Write for someone doing this for the first time, without knowing Romanian instit
 - Never invent certainty. If the source says "it took about two weeks", do not write
   "it takes 14 days".
 - Keep the uncertainty that is really there: "у нашому випадку", "станом на 2026".
-- Facts that change (fees, deadlines, addresses, required documents, laws) need a source
-  link in `## Джерела`.
+- Cite official sources for changing facts (fees, deadlines, addresses, required documents,
+  laws) in `## Джерела`. Record sources for community cases in the pull request.
 - Remove personal data from source material: names, phone numbers, emails, document numbers.
 - A fact the format asks for but the material does not give (a price, a duration) is left out,
   not guessed.
@@ -122,9 +122,14 @@ Skip a section only when it has nothing in it.
    `## Посольство України`), in route order. Do not create a separate “Підготовка” section
    just to hold background or legal analysis. Everything about that place
    lives in its section, including payment for it. Inside:
-   - Put `### Чек-ліст` at the end of the section, after all explanations and procedures: everything
-     to have in hand when you go there, as a Markdown task
-     list (`- [ ] ...`). One item per document or thing. Item format: `**Name of the thing**`
+   - A checklist is for getting ready to do that step. Include only what readers need to have,
+     bring, or have ready before they start, so they can tick each item as they prepare it.
+     Describe what they will receive in the instructions. If a later step needs that result,
+     list it in the later step's checklist. For example, put the medical certificate in the
+     IGI submission checklist, and explain how to obtain it in the clinic instructions.
+     Skip the checklist when the step has no confirmed preparation items.
+   - Put `### Чек-ліст` at the end of the section, after all explanations and procedures.
+     Use a Markdown task list (`- [ ] ...`). One item per document or thing. Item format: `**Name of the thing**`
      then ` - ` and a short clarification (when it is needed, how many copies, the Romanian
      name). No conversational phrasing: "2 копії або скан", not "і пару ксерокопій". Every
      `Чек-ліст` heading gets its own print button automatically.
@@ -136,7 +141,7 @@ Skip a section only when it has nothing in it.
      images of forms.
 4. **Print memo** - a `<PrintMemo>` block (`src/components/PrintMemo.astro`) right before
    `## Джерела`. Hidden on screen; "Друк пам'ятки" prints only this. It must fit 1-2 A4
-   pages: one `<div class="memo-step">` per institution with its checklist (`- [ ]`) and only
+   pages: one `<div class="memo-step">` per institution with its preparation checklist (`- [ ]`) if needed and only
    the facts needed on the spot (form fields to tick, amounts, IBAN, where to book). No
    headings inside (they would appear in the navigation), no links (paper), no images.
 5. **`## Джерела`** - links. Set `collectedOn: "YYYY-MM-DD"` in frontmatter to show
@@ -209,7 +214,7 @@ CSS, `<hr>`, colours or spacing.
 1. `pnpm build` passes.
 2. The text is in Ukrainian and reads naturally, not as a literal translation.
 3. The print memo fits 1-2 A4 pages and covers every option shown in tabs.
-4. Every changing fact has a source in `## Джерела`.
+4. Changing facts have official sources in `## Джерела` or community case sources in the pull request.
 5. No personal data from the source material is left.
 6. Read as a newcomer: from the title, summary and `Кроки`, can you tell what this achieves,
    whether a prerequisite blocks you, and what to do first? Then walk through each section:

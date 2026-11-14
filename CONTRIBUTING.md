@@ -15,10 +15,10 @@ Agents handle the repository work for content contributions.
 - Look for an existing page on the topic and update it instead of creating a duplicate. Change only what the new material affects.
 - Publish in Ukrainian; keep official Romanian names with a Ukrainian explanation. Do not invent missing facts, and preserve the source's uncertainty.
 - Follow [AGENTS.md](AGENTS.md) for procedural guides: steps, checklists, a print memo and sources. Reference pages and contact lists do not need steps or checklists; choose a concise format suited to the material.
-- For changing facts such as costs, deadlines, addresses and requirements, add links under `## Джерела`. For contacts, record sources and the collection date in the PR; omit the public sources section. Prefer the latest official source; otherwise use the latest first-hand report.
+- For changing facts such as costs, deadlines, addresses and requirements, cite official sources under `## Джерела`. For contacts, record sources and the collection date in the PR and omit the public sources section. When official sources leave a gap, use the latest first-hand report and record it in the PR.
 - Remove private personal data from submissions. Public contact details intended for inquiries may be included.
 
-In the PR, describe what changed and where the material came from: link to an official source or a specific Telegram message or discussion. For a first-hand report without a public link, describe it in the PR, including the date, circumstances and uncertainty, without disclosing private data; link to the PR in the page's sources. Do not link only to the community's general page instead of a specific discussion.
+In the PR, describe what changed and cite the sources. For community cases, keep specific discussion links or an anonymized description with the date, circumstances, and uncertainty in the PR. In the guide’s `## Джерела`, link to the official sources relevant to the procedure.
 
 ## Rights in contributions
 
