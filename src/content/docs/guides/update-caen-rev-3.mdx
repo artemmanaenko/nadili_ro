@@ -11,7 +11,12 @@ import { Steps, TabItem, Tabs } from '@astrojs/starlight/components';
 import Summary from '../../../components/Summary.astro';
 import PrintMemo from '../../../components/PrintMemo.astro';
 
-<Summary facts={[["Нове свідоцтво", "безкоштовно"]]}>
+<Summary
+	facts={[
+		['Кінець перехідного періоду', '1 квітня 2027 року'],
+		['Нове свідоцтво', 'безкоштовно'],
+	]}
+>
 	<Fragment slot="highlight">
 		Якщо ваш SRL ще має коди CAEN Rev. 2 і види діяльності залишаються ті самі, звірте коди за таблицею переходу. Після оновлення отримаєте нове свідоцтво про реєстрацію.
 	</Fragment>
@@ -112,6 +117,7 @@ ONRC також приймає заяви через [портал онлайн-
 
 ## Джерела
 
+- [Постанова уряду Румунії № 788/2026 — перехідний період CAEN Rev. 3 (Monitorul Oficial № 835, с. 10)](https://actadiurna.ro/mof/835-2026.pdf#page=10)
 - [ONRC — оновлення кодів CAEN для юридичних осіб](https://www.onrc.ro/index.php/ro/mentiuni/persoane-juridice/actualizarea-obiectului-de-activitate)
 - [ONRC — бланк заяви Anexa nr. 2a](https://www.onrc.ro/templates/site/formulare/11-10-150.pdf)
 - [INS — класифікатор і таблиця відповідності CAEN Rev. 2 і Rev. 3](https://insse.ro/cms/ro/caen)
