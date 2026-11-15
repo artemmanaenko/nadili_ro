@@ -8,6 +8,7 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'NADILI',
+			favicon: '/favicon.png',
 			logo: { src: './src/assets/logo.svg', replacesTitle: true },
 			customCss: ['./src/styles/theme.css'],
 			// Right-hand navigation: sections, with subsections shown for the current one.
